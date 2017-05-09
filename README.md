@@ -1,2 +1,2 @@
 # kids-adjectives
-children's adjective ordering preferences
+This repo contains work relevant to children's adjective ordering preferences.
