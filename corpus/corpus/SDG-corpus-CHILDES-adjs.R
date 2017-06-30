@@ -243,7 +243,7 @@ summary(gathered)
 table(gathered$Corpus)
 
 nrow(gathered[gathered$Noun %in% nouns$Noun,])
-d_subexp[d_subexp$Noun %in% nouns$Noun,]
+# d_subexp[d_subexp$Noun %in% nouns$Noun,]
 bynoun = droplevels(gathered[gathered$Noun %in% nouns$Noun,])
 bynoun$NounClass = nouns[as.character(bynoun$Noun),]$NounClass
 nrow(bynoun)
@@ -259,7 +259,8 @@ two_adj$Distance = two_adj$DistanceFromNoun - 1
 head(two_adj)
 
 #get rid of dplyr
-detach("package:dplyr", unload=TRUE) 
+detach(package:tidyverse, unload=TRUE) 
+detach(package:dplyr, unload=TRUE) 
 
 # calculate means and CIs
 bootsSummary <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
