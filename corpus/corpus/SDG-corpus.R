@@ -90,6 +90,8 @@ two_adj <- gathered[gathered$DistanceFromNoun < 3,]
 two_adj$Distance = two_adj$DistanceFromNoun - 1
 head(two_adj)
 
+#get rid of dplyr
+detach("package:dplyr", unload=TRUE) 
 
 # calculate means and CIs
 bootsSummary <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,

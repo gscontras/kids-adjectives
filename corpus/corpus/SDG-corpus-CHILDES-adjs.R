@@ -211,7 +211,7 @@ d_exp = droplevels(rb[rb$Adjective %in% adjs$Adjective | rb$PrevAdjective %in% a
 nrow(d_exp)
 table(d_exp$Corpus)
 table(d_exp$Corpus,d_exp$PrevAdj)
-table(d_exp$Corpus,d_exp$PrevPrevAdj) # only 111 cases with 3 adjs
+table(d_exp$Corpus,d_exp$PrevPrevAdj) 
 head(d_exp[d_exp$PrevPrevAdj == "yes",])
 d_exp[d_exp$PrevAdjective == "",]$PrevAdjective = NA
 d_exp[d_exp$PrevPrevAdjective == "",]$PrevPrevAdjective = NA
@@ -258,6 +258,8 @@ two_adj <- gathered[gathered$DistanceFromNoun < 3,]
 two_adj$Distance = two_adj$DistanceFromNoun - 1
 head(two_adj)
 
+#get rid of dplyr
+detach("package:dplyr", unload=TRUE) 
 
 # calculate means and CIs
 bootsSummary <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
