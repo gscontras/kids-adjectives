@@ -64,6 +64,9 @@ gof(four_d$av.distance,four_d$subjectivity) # r = .16, r2 = .03
 results <- boot(data=four_d, statistic=rsq, R=10000, formula=av.distance~subjectivity)
 boot.ci(results, type="bca") # 95%   ( 0.0000,  0.2467 )     
 
+#####
+##PLOT distance against subjectivity
+#####
 
 c$facet = paste(c$age,c$child.p.or.d)
 
@@ -72,18 +75,7 @@ c.cor <- ddply(.data=c,
                  .(facet), 
                  summarize, 
                  n=paste("n =", length(word)))
-
-lm_eqn = function(c){
-  m = lm(subjectivity ~ av.distance, c);
-  eq <- substitute(~~R^2~"="~r2, 
-                   list(r2 = format(summary(m)$r.squared, digits = 3)))
-  as.character(as.expression(eq));                 
-}
-
-eqns <- by(c, c$facet, lm_eqn)
-c2 <- data.frame(eq = unclass(eqns), facet = as.numeric(names(eqns))) 
-
-
+#calculate r2
 lm_eqn = function(df){
   m = lm(av.distance ~ subjectivity, df);
   eq <- substitute(~~italic(r)^2~"="~r2, 
@@ -92,24 +84,22 @@ lm_eqn = function(df){
                         r2 = format(summary(m)$r.squared, digits = 1)))
   as.character(as.expression(eq));                 
 }
-
-#eq <- ddply(o_agr_pred,.(correctclass1),lm_eqn)
 eq <- ddply(c,.(facet),lm_eqn)
 
-# plot order preference against subjectivity
+# plot 
 ggplot(c, aes(x=subjectivity,y=av.distance)) +
   #geom_point(color="red") +
   geom_text(aes(label=word),color="black",alpha=.75)+
   geom_smooth(method=lm,se=FALSE,color="red",alpha=.1) +
-  xlab("\nsubjectivity")+
-  ylab("distance\n")+
+  xlab("\nadult subjectivity")+
+  ylab("corpus distance\n")+
   #ylim(0,1)+
   #scale_y_continuous(breaks=c(.25,.50,.75))+
   facet_wrap(~facet,ncol = 2)+
   geom_text(data=c.cor, aes(x=.45, y=1, label=n),color="blue", inherit.aes=FALSE, parse=FALSE) +
-  geom_text(data=eq,aes(x = 0.45, y = 0.9,label=V1),color="blue", parse = TRUE, inherit.aes=FALSE) +
+  geom_text(data=eq,aes(x = 0.45, y = 0.88,label=V1),color="blue", parse = TRUE, inherit.aes=FALSE) +
   theme_bw()
-#ggsave("results/naturalness-subjectivity.pdf",height=4,width=5.5)
+#ggsave("plots/distance-subjectivity.png",width=7.5,height=6)
 
 
 # plot order preference against subjectivity with text label
