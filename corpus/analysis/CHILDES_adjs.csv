@@ -131,7 +131,7 @@ cheek,1,0,4,directed
 craft,1,0,4,directed
 green,0.090909091,1,4,directed
 clean,0,0,4,directed
-english,0.333333333,1,4,directed
+English,0.333333333,1,4,directed
 alright,0.666666667,0,4,directed
 fresh,1,0,4,directed
 left,0,0,4,directed
@@ -370,7 +370,7 @@ steady,0,0,3,directed
 fresh,0.333333333,0,3,directed
 green,0.222222222,1,3,directed
 clean,0.5,0,3,directed
-english,0,1,3,directed
+English,0,1,3,directed
 innocent,0,0,3,directed
 weeny,0,0,3,directed
 cute,1,0,3,produced

@@ -3,8 +3,9 @@ library(ggplot2)
 library(lme4)
 library(lmerTest)
 require(MuMIn)
+library(plyr)
 
-setwd("~/Documents/git/cocolab/adjective_ordering/experiments/13-subjectivity-expanded")
+setwd("~/git/kids-adjectives/corpus/analysis/")
 
 # Bootstrap 95% CI for R-Squared
 library(boot)
@@ -15,233 +16,98 @@ rsq <- function(formula, data, indices) {
   return(summary(fit)$r.square)
 } 
 
-source("results/splithalf.R")
-
-s = read.csv("results/subjectivity-expanded_results.csv",header=T)
+s = read.csv("SDG_subjectivity-expanded_results.csv",header=T)
 head(s)
 s_agr_pred = aggregate(response~predicate,data=s,mean)
-s_agr_class = aggregate(response~class,data=s,mean)
 
-#load in naturalness preferences
-o = read.csv("~/Documents/git/cocolab/adjective_ordering/experiments/12-order-preference-expanded/Submiterator-master/order-preference-duplicated.csv",header=T)
-head(o)
-nrow(o) #28380 
-o$string = paste(o$correctpred1,o$correctpred2,o$noun)
-o <- o[o$makes_sense=="yes",]
-nrow(o) #23790
-length(unique(o$string)) #23488
-length(unique(o$correct_configuration)) #5478
-o_no_sup <- o[o$correctpred1!="best"&o$correctpred1!="biggest"&o$correctpred1!="closest"&o$correctpred1!="last"&o$correctpred2!="best"&o$correctpred2!="biggest"&o$correctpred2!="closest"&o$correctpred2!="last",]
-o_no_sup_pred = aggregate(correctresponse~correctpred1*correctclass1,data=o_no_sup,mean)
-o_agr_pred = aggregate(correctresponse~correctpred1*correctclass1,data=o,mean)
-o_agr_class = aggregate(correctresponse~correctclass1,data=o,mean)
-head(o_agr_pred)
-
-# combined preference subjectivity plot
-o_s = bootsSummary(data=o, measurevar="correctresponse", groupvars=c("correctclass1"))
-o_s$expt = "preference"
-colnames(o_s) <- c("class","N","average","YMin","YMax","expt")
-s_s = bootsSummary(data=s, measurevar="response", groupvars=c("class"))
-s_s$expt = "subjectivity"
-colnames(s_s) <- c("class","N","average","YMin","YMax","expt")
-new_r = rbind(o_s,s_s)
-ggplot(data=new_r,aes(x=reorder(class,-average,mean),y=average,fill=expt))+
-  geom_bar(stat="identity",position=position_dodge(.9),color="black")+
-  geom_errorbar(aes(ymin=YMin, ymax=YMax, x=reorder(class,-average,mean), width=0.1),position=position_dodge(.9))+
-  xlab("\nadjective class")+
-  labs(fill="experiment") +
-  ylab("")+
-  ylim(0,1)+
-  theme_bw()+
-  scale_fill_manual(values=c("gray25","gray75","gray50","gray100"))+
-  theme(axis.text.x=element_text(angle=45,vjust=1,hjust=1))
-#ggsave("~/Documents/git/cocolab/adjective_ordering/writing/long-paper/plots/expt3_results.png",height=2.5,width=6.75)  
-
-
-
-# explainable variance
-o$workerID = o$workerid + 1
-o$response = o$correctresponse
-o$class = o$correctclass
-#library(plyr)
-prophet(splithalf_class(o, 100), 2) # 0.95 class configuration
-prophet(splithalf_correctpred(o, 100), 2) # 0.98 predicate configuration
-s$workerID = s$workerid
-prophet(splithalf_pred(s, 100), 2) # 0.98
-
-## LINEAR REGRESSION TO FIND OUTLIERS
-o_agr_pred$subjectivity = s_agr_pred$response[match(o_agr_pred$correctpred1,s_agr_pred$predicate)]
-m = glm(correctresponse~subjectivity,data=o_agr_pred)
-summary(m)
-r.squaredGLMM(m) #0.51
-o_agr_pred$Predicted = fitted(m)
-o_agr_pred$Diff = abs(o_agr_pred$correctresponse - o_agr_pred$Predicted)
-(2*sd(o_agr_pred$Diff)) #0.1545926
-o_agr_pred$outlier = F
-o_agr_pred[o_agr_pred$Diff>0.1545926,]$outlier = T
-table(o_agr_pred$outlier)
-o_agr_pred[o_agr_pred$outlier==T,]$correctpred1
-gof(o_agr_pred[o_agr_pred$outlier==F,]$correctresponse,o_agr_pred[o_agr_pred$outlier==F,]$subjectivity) #r2 = 0.74
-ggplot(o_agr_pred, aes(x=Predicted,y=correctresponse,color=outlier)) +
-  #geom_point(size=1) +
-  geom_text(aes(label=correctpred1),size=2)+
-  ylab("naturalness\n")+
-  xlab("\npredicted naturalness")+
-  theme_bw()
-#ggsave("results/naturalness-subjectivity-outliers.pdf",height=4,width=5.5)
-# partially-labeled plot
-o_agr_pred$text = o_agr_pred$correctpred1
-o_agr_pred[o_agr_pred$correctpred1!="best"&o_agr_pred$correctpred1!="biggest"&o_agr_pred$correctpred1!="closest"&o_agr_pred$correctpred1!="last"&o_agr_pred$correctpred1!="daily"&o_agr_pred$correctpred1!="current"&o_agr_pred$correctpred1!="solid"&o_agr_pred$correctpred1!="entrepreneurial",]$text <- NA
-o_agr_pred$bad = "good"
-o_agr_pred[o_agr_pred$correctpred1!="best"&o_agr_pred$correctpred1!="biggest"&o_agr_pred$correctpred1!="closest"&o_agr_pred$correctpred1!="last"&o_agr_pred$correctpred1!="daily"&o_agr_pred$correctpred1!="current"&o_agr_pred$correctpred1!="solid"&o_agr_pred$correctpred1!="entrepreneurial",]$bad = "outlier"
-o_agr_pred[o_agr_pred$correctpred1!="best"&o_agr_pred$correctpred1!="biggest"&o_agr_pred$correctpred1!="closest"&o_agr_pred$correctpred1!="last",]$bad = "superlative"
-ggplot(o_agr_pred, aes(x=subjectivity,y=correctresponse,color=bad)) +
-  geom_point() +
-  geom_smooth(data=o_agr_pred[o_agr_pred$correctpred1!="best"&o_agr_pred$correctpred1!="biggest"&o_agr_pred$correctpred1!="closest"&o_agr_pred$correctpred1!="last"&o_agr_pred$correctpred1!="daily"&o_agr_pred$correctpred1!="current"&o_agr_pred$correctpred1!="solid"&o_agr_pred$correctpred1!="entrepreneurial",],method="lm",color="black")+
-  #stat_smooth(method="lm")+
-  geom_text(aes(label=text),size=2.5,vjust=1.5)+
-  ylab("naturalness\n")+
-  xlab("\nsubjectivity")+
-  theme_bw()+
-  scale_color_manual(values=c("green","black","blue"))+
-  theme(legend.position="none")
-#ggsave("~/Documents/git/cocolab/adjective_ordering/writing/long-paper/plots/expt3_nat-sub.png",height=3,width=3.5)  
-ggplot(o_agr_pred, aes(x=subjectivity,y=correctresponse)) +
-  geom_point() +
-  geom_smooth(method="lm",color="black")+
-  #stat_smooth(method="lm")+
-  #geom_text(aes(label=text),size=2.5,vjust=1.5)+
-  ylab("naturalness\n")+
-  xlab("\nsubjectivity")+
-  theme_bw()+
-  scale_color_manual(values=c("green","black","blue"))+
-  theme(legend.position="none")
-#ggsave("~/Documents/git/cocolab/adjective_ordering/writing/long-paper/plots/expt3_nat-sub_all.pdf",height=3,width=3.5) 
-ggplot(o_agr_pred, aes(x=subjectivity,y=correctresponse,color=bad)) +
-  geom_point() +
-  geom_smooth(data=o_agr_pred[o_agr_pred$correctpred1!="best"&o_agr_pred$correctpred1!="biggest"&o_agr_pred$correctpred1!="closest"&o_agr_pred$correctpred1!="last",],method="lm",color="black")+
-  #stat_smooth(method="lm")+
-  geom_text(data=o_agr_pred[o_agr_pred$correctpred1=="best"|o_agr_pred$correctpred1=="biggest"|o_agr_pred$correctpred1=="closest"|o_agr_pred$correctpred1=="last",],aes(label=text),size=2.5,vjust=1.5)+
-  ylab("naturalness\n")+
-  xlab("\nsubjectivity")+
-  theme_bw()+
-  scale_color_manual(values=c("green","black","black"))+
-  theme(legend.position="none")
-#ggsave("~/Documents/git/cocolab/adjective_ordering/writing/long-paper/plots/expt3_nat-sub_sup.pdf",height=3,width=3.5)  
-# no superlatives
-o_no_sup_pred$subjectivity = s_agr_pred$response[match(o_no_sup_pred$correctpred1,s_agr_pred$predicate)]
-m = glm(correctresponse~subjectivity,data=o_no_sup_pred)
-summary(m)
-r.squaredGLMM(m) #0.61
-o_no_sup_pred$Predicted = fitted(m)
-o_no_sup_pred$Diff = abs(o_no_sup_pred$correctresponse - o_no_sup_pred$Predicted)
-(3*sd(o_no_sup_pred$Diff)) #0.1860329
-o_no_sup_pred$outlier = F
-o_no_sup_pred[o_no_sup_pred$Diff>0.1860329,]$outlier = T
-table(o_no_sup_pred$outlier) #4 outliers
-o_no_sup_pred[o_no_sup_pred$outlier==T,]$correctpred1
-gof(o_no_sup_pred[o_no_sup_pred$outlier==F,]$correctresponse,o_no_sup_pred[o_no_sup_pred$outlier==F,]$subjectivity) #r2 = 0.70
-results <- boot(data=o_no_sup_pred[o_no_sup_pred$outlier==F,], statistic=rsq, R=10000, formula=correctresponse~subjectivity)
-boot.ci(results, type="bca") # 95%   ( 0.5822,  0.7754 )  
-ggplot(o_no_sup_pred, aes(x=Predicted,y=correctresponse,color=outlier)) +
-  #geom_point(size=1) +
-  geom_text(aes(label=correctpred1),size=2)+
-  ylab("naturalness\n")+
-  xlab("\npredicted naturalness")+
-  theme_bw()
-#ggsave("results/naturalness-subjectivity-outliers_3sd.pdf",height=4,width=5.5)
-# with frequency and length
-lf = read.table("../../corpus_results/data/sampled_adjectives_with_freq.txt",sep="\t",header=T)
-o_no_sup_pred$freq = lf$logProbability[match(o_no_sup_pred$correctpred1,lf$Adjective)]
-o_no_sup_pred$length = lf$Length[match(o_no_sup_pred$correctpred1,lf$Adjective)]
-m = lm(correctresponse~subjectivity+freq+length,data=o_no_sup_pred)
-summary(m)
-r.squaredGLMM(m) #0.7036081
-m_s = lm(correctresponse~freq+length,data=o_no_sup_pred)
-summary(m_s)
-m_f = lm(correctresponse~subjectivity+length,data=o_no_sup_pred)
-summary(m_f)
-m_l = lm(correctresponse~subjectivity+freq,data=o_no_sup_pred)
-summary(m_l)
-anova(m_s,m)
-anova(m_f,m)
-anova(m_l,m)
-
-m1 = lmer(correctresponse~sub1+freq1+length1+(1|workerid),data=o)
-m2 = lmer(correctresponse~freq1+length1+(1|workerid),data=o)
-anova(m1,m2)
-
-
-mo = glm(correctresponse~subjectivity+freq+length,data=o_no_sup_pred[o_no_sup_pred$outlier==F,])
-summary(mo)
-r.squaredGLMM(mo) #0.7593991
-
-m
-o_no_sup_pred$Predicted = fitted(m)
-o_no_sup_pred$Diff = abs(o_no_sup_pred$correctresponse - o_no_sup_pred$Predicted)
-(3*sd(o_no_sup_pred$Diff)) #0.1603279
-o_no_sup_pred$outlier = F
-o_no_sup_pred[o_no_sup_pred$Diff>0.1603279,]$outlier = T
-table(o_no_sup_pred$outlier) #6 outliers
-o_no_sup_pred[o_no_sup_pred$outlier==T,]$correctpred1
-gof(o_no_sup_pred[o_no_sup_pred$outlier==F,]$correctresponse,o_no_sup_pred[o_no_sup_pred$outlier==F,]$subjectivity) #r2 = 0.72
-results <- boot(data=o_no_sup_pred[o_no_sup_pred$outlier==F,], statistic=rsq, R=10000, formula=correctresponse~subjectivity)
-boot.ci(results, type="bca") # 95%   ( 0.4700,  0.7185 )    
-ggplot(o_no_sup_pred, aes(x=Predicted,y=correctresponse,color=outlier)) +
-  #geom_point(size=1) +
-  geom_text(aes(label=correctpred1),size=2)+
-  ylab("naturalness\n")+
-  xlab("\npredicted naturalness")+
-  theme_bw()
-#ggsave("results/naturalness-subjectivity-outliers_lf.pdf",height=4,width=5.5)
-
-
-
+#load in corpus distances
+c = read.csv("CHILDES_adjs.csv",header=T)
+head(c)
+#only look at overlapping adjectives
+c = c[c$overlap==1,]
 
 
 ## SUBJECTIVITY
 # PREDICATE
-o_agr_pred$subjectivity = s_agr_pred$response[match(o_agr_pred$correctpred1,s_agr_pred$predicate)]
-gof(o_agr_pred$correctresponse,o_agr_pred$subjectivity) # r = .72, r2 = .51
-results <- boot(data=o_agr_pred, statistic=rsq, R=10000, formula=correctresponse~subjectivity)
-boot.ci(results, type="bca") # 95%   ( 0.3174,  0.6583 )  
-# PREDICATE WITHOUT CLASS X
-o_x = o_agr_pred[o_agr_pred$correctclass1!="X",]
-gof(o_x$correctresponse,o_x$subjectivity) # r = .76, r2 = .58
-results <- boot(data=o_x, statistic=rsq, R=10000, formula=correctresponse~subjectivity)
-boot.ci(results, type="bca") # 95%   ( 0.4128,  0.6960 )  
-# PREDICATE WITH ONLY ORIGINAL MATERIALS (there were 11)
-o_o = o_agr_pred[o_agr_pred$correctpred1=="blue"|o_agr_pred$correctpred1=="green"|o_agr_pred$correctpred1=="long"|o_agr_pred$correctpred1=="new"|o_agr_pred$correctpred1=="old"|o_agr_pred$correctpred1=="purple"|o_agr_pred$correctpred1=="red"|o_agr_pred$correctpred1=="smooth"|o_agr_pred$correctpred1=="square"|o_agr_pred$correctpred1=="wooden"|o_agr_pred$correctpred1=="yellow",]
-gof(o_o$correctresponse,o_o$subjectivity) # r = .95, r2 = .91
-results <- boot(data=o_o, statistic=rsq, R=10000, formula=correctresponse~subjectivity)
-boot.ci(results, type="bca") # 95%   ( 0.0548,  0.9680 )    
-# PREDICATE WITHOUT SUPERLATIVES (best, biggest, closest, last)
-o_no_sup_pred$subjectivity = s_agr_pred$response[match(o_no_sup_pred$correctpred1,s_agr_pred$predicate)]
-gof(o_no_sup_pred$correctresponse,o_no_sup_pred$subjectivity) # r = .78, r2 = .61
-results <- boot(data=o_no_sup_pred, statistic=rsq, R=10000, formula=correctresponse~subjectivity)
-boot.ci(results, type="bca") # 95%   ( 0.4658,  0.7145 )  
+c$subjectivity = s_agr_pred$response[match(c$word,s_agr_pred$predicate)]
+
+# Age 2 produced: 14 adjs
+two_p = c[c$age==2&c$child.p.or.d=="produced",]
+gof(two_p$av.distance,two_p$subjectivity) # r = -.22, r2 = .05
+results <- boot(data=two_p, statistic=rsq, R=10000, formula=av.distance~subjectivity)
+boot.ci(results, type="bca") # 95%   ( 0.0001,  0.3018 )   
+# Age 2 directed: 18 adjs
+two_d = c[c$age==2&c$child.p.or.d=="directed",]
+gof(two_d$av.distance,two_d$subjectivity) # r = .00, r2 = .00
+results <- boot(data=two_d, statistic=rsq, R=10000, formula=av.distance~subjectivity)
+boot.ci(results, type="bca") # 95%   ( 0.0000,  0.0000 ) 
+
+# Age 3 produced: 14 adjs
+three_p = c[c$age==3&c$child.p.or.d=="produced",]
+gof(three_p$av.distance,three_p$subjectivity) # r = .47, r2 = .22
+results <- boot(data=three_p, statistic=rsq, R=10000, formula=av.distance~subjectivity)
+boot.ci(results, type="bca") # 95%   ( 0.0017,  0.5210 )     
+# Age 3 directed: 18 adjs
+three_d = c[c$age==3&c$child.p.or.d=="directed",]
+gof(three_d$av.distance,three_d$subjectivity) # r = .42, r2 = .18
+results <- boot(data=three_d, statistic=rsq, R=10000, formula=av.distance~subjectivity)
+boot.ci(results, type="bca") # 95%   ( 0.0016,  0.5133 )     
+
+# Age 4 produced: 12 adjs
+four_p = c[c$age==4&c$child.p.or.d=="produced",]
+gof(four_p$av.distance,four_p$subjectivity) # r = -.36, r2 = .13
+results <- boot(data=four_p, statistic=rsq, R=10000, formula=av.distance~subjectivity)
+boot.ci(results, type="bca") # 95%   ( 0.0009,  0.4678 )    
+# Age 4 directed: 19 adjs
+four_d = c[c$age==4&c$child.p.or.d=="directed",]
+gof(four_d$av.distance,four_d$subjectivity) # r = .16, r2 = .03
+results <- boot(data=four_d, statistic=rsq, R=10000, formula=av.distance~subjectivity)
+boot.ci(results, type="bca") # 95%   ( 0.0000,  0.2467 )     
 
 
-# PREDICATE WITHOUT SUPERLATIVES AND OUTLIERS (civilized* (human), *creative* (human), *current* (temporal), *daily* (temporal), *designated* (X), *entrepreneurial* (human), *frozen* (physical), and *solid* (physical))
-o_no_out_pred <- o_no_sup_pred[o_no_sup_pred$correctpred1!="civilized"&o_no_sup_pred$correctpred1!="creative"&o_no_sup_pred$correctpred1!="current"&o_no_sup_pred$correctpred1!="daily"&o_no_sup_pred$correctpred1!="designated"&o_no_sup_pred$correctpred1!="entrepreneurial"&o_no_sup_pred$correctpred1!="frozen"&o_no_sup_pred$correctpred1!="solid",]
-gof(o_no_out_pred$correctresponse,o_no_out_pred$subjectivity) # r = .87, r2 = .76
-results <- boot(data=o_no_out_pred, statistic=rsq, R=10000, formula=correctresponse~subjectivity)
-boot.ci(results, type="bca") # 95%   ( 0.6681,  0.8220 )  
-# CLASS
-o_agr_class$subjectivity = s_agr_class$response[match(o_agr_class$correctclass1,s_agr_class$class)]
-gof(o_agr_class$correctresponse,o_agr_class$subjectivity) # r = .86, r2 = .73
-results <- boot(data=o_agr_class, statistic=rsq, R=10000, formula=correctresponse~subjectivity)
-boot.ci(results, type="bca") # 95%   ( 0.3629,  0.8717 )
+c$facet = paste(c$age,c$child.p.or.d)
+
+#count number of observations per facet
+c.cor <- ddply(.data=c, 
+                 .(facet), 
+                 summarize, 
+                 n=paste("n =", length(word)))
+
+lm_eqn = function(c){
+  m = lm(subjectivity ~ av.distance, c);
+  eq <- substitute(~~R^2~"="~r2, 
+                   list(r2 = format(summary(m)$r.squared, digits = 3)))
+  as.character(as.expression(eq));                 
+}
+
+eqns <- by(c, c$facet, lm_eqn)
+c2 <- data.frame(eq = unclass(eqns), facet = as.numeric(names(eqns))) 
+
+
+lm_eqn = function(df){
+  m = lm(av.distance ~ subjectivity, df);
+  eq <- substitute(~~italic(r)^2~"="~r2, 
+                   list(a = format(coef(m)[1], digits = 2), 
+                        b = format(coef(m)[2], digits = 2), 
+                        r2 = format(summary(m)$r.squared, digits = 1)))
+  as.character(as.expression(eq));                 
+}
+
+#eq <- ddply(o_agr_pred,.(correctclass1),lm_eqn)
+eq <- ddply(c,.(facet),lm_eqn)
 
 # plot order preference against subjectivity
-ggplot(o_agr_pred, aes(x=subjectivity,y=correctresponse)) +
-  geom_point() +
-  geom_text(aes(label=correctpred1),color="black")+
-  geom_smooth(method=lm,SE=FALSE,color="black") +
+ggplot(c, aes(x=subjectivity,y=av.distance)) +
+  #geom_point(color="red") +
+  geom_text(aes(label=word),color="black",alpha=.75)+
+  geom_smooth(method=lm,se=FALSE,color="red",alpha=.1) +
   xlab("\nsubjectivity")+
-  ylab("naturalness\n")+
+  ylab("distance\n")+
   #ylim(0,1)+
   #scale_y_continuous(breaks=c(.25,.50,.75))+
+  facet_wrap(~facet,ncol = 2)+
+  geom_text(data=c.cor, aes(x=.45, y=1, label=n),color="blue", inherit.aes=FALSE, parse=FALSE) +
+  geom_text(data=eq,aes(x = 0.45, y = 0.9,label=V1),color="blue", parse = TRUE, inherit.aes=FALSE) +
   theme_bw()
 #ggsave("results/naturalness-subjectivity.pdf",height=4,width=5.5)
 
