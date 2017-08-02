@@ -24,7 +24,7 @@ function make_slides(f) {
 
   slides.multi_slider = slide({
     name : "multi_slider",
-    present : _.shuffle(stimuli),
+    present : _.sample(stimuli,30),
     present_handle : function(stim) {
       $(".err").hide();
       this.init_sliders();      
