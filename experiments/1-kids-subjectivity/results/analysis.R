@@ -4,7 +4,7 @@ library(hydroGOF)
 library(tidyr)
 library(dplyr)
 
-setwd("~/Documents/git/cocolab/adjective_ordering/experiments/13-subjectivity-expanded/Submiterator-master")
+setwd("~/Desktop/adjs!/kids-adjectives/experiments/1-kids-subjectivity/Submiterator-master")
 
 num_round_dirs = 22
 df = do.call(rbind, lapply(1:num_round_dirs, function(i) {
