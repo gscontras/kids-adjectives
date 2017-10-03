@@ -13,10 +13,10 @@ var adjectives = _.shuffle([
 		{"Predicate":"purple", "Class":"color"},
 		{"Predicate":"brown", "Class":"color"},
 		{"Predicate":"gold", "Class":"color"},
-		{"Predicate":"golden", "Class":"color"}
-		{"Predicate":"tan", "Class":"color"}
-		{"Predicate":"pink", "Class": "color"}
-		{"Predicate":"orange", "Class":"color"}
+		{"Predicate":"golden", "Class":"color"},
+		{"Predicate":"tan", "Class":"color"},
+		{"Predicate":"pink", "Class": "color"},
+		{"Predicate":"orange", "Class":"color"},
 		{"Predicate":"silver", "Class":"color"},
 		{"Predicate":"white", "Class":"color"},
 		{"Predicate":"grey", "Class":"color"},
