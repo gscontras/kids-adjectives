@@ -9,7 +9,7 @@ setwd("~/Desktop/adjs!/kids-adjectives/experiments/1-kids-subjectivity/Submitera
 num_round_dirs = 12
 df = do.call(rbind, lapply(1:num_round_dirs, function(i) {
   return (read.csv(paste(
-    'round', i, '/subjectivity-expanded.csv', sep='')) %>%
+    'round', i, '/kids-subjectivity.csv', sep='')) %>% #'round1/kids-subjectivity.csv')) %>% #for just 1
       mutate(workerid = (workerid + (i-1)*9)))}))
 
 d = subset(df, select=c("workerid", "class","predicate","slide_number","response","language"))
