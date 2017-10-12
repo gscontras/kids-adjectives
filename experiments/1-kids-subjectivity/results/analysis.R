@@ -17,11 +17,12 @@ df = do.call(rbind, lapply(1:num_round_dirs, function(i) {
 d = subset(df, select=c("workerid", "class","predicate","slide_number","response","language"))
 unique(d$language)
 
-length(unique(d$workerid)) # n=XXX
+length(unique(d$workerid)) # n=108
 head(d)
 
 ## remove non-English speakers
 d = d[d$language!="Russian"&d$language!="",]
+length(unique(d$workerid)) # n=106
 
 ## determine number of observations
 table(d$predicate)
