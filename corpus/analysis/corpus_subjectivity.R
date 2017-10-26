@@ -16,15 +16,17 @@ rsq <- function(formula, data, indices) {
   return(summary(fit)$r.square)
 } 
 
-s = read.csv("SDG_subjectivity-expanded_results.csv",header=T)
+s = read.csv("../../experiments/1-kids-subjectivity/results/adjective-subjectivity.csv",header=T) #new numbers
+#s = read.csv("SDG_subjectivity-expanded_results.csv",header=T) #SDG numbers
 head(s)
-s_agr_pred = aggregate(response~predicate,data=s,mean)
+s_agr_pred = s
+#s_agr_pred = aggregate(response~predicate,data=s,mean)
 
 #load in corpus distances
 c = read.csv("CHILDES_adjs.csv",header=T)
 head(c)
 #only look at overlapping adjectives
-c = c[c$overlap==1,]
+#c = c[c$overlap==1,]
 
 # histogram
 ggplot(c, aes(x=tokens)) +
@@ -36,6 +38,7 @@ ggplot(c, aes(x=tokens)) +
 ## SUBJECTIVITY
 # PREDICATE
 c$subjectivity = s_agr_pred$response[match(c$word,s_agr_pred$predicate)]
+c = c[!is.na(c$subjectivity),]
 
 # Age 2 produced: 14 adjs
 two_p = c[c$age==2&c$child.p.or.d=="produced",]
@@ -102,8 +105,8 @@ ggplot(c, aes(x=subjectivity,y=av.distance)) +
   #ylim(0,1)+
   #scale_y_continuous(breaks=c(.25,.50,.75))+
   facet_wrap(~facet,ncol = 2)+
-  geom_text(data=c.cor, aes(x=.45, y=1, label=n),color="blue", inherit.aes=FALSE, parse=FALSE) +
-  geom_text(data=eq,aes(x = 0.45, y = 0.88,label=V1),color="blue", parse = TRUE, inherit.aes=FALSE) +
+  geom_text(data=c.cor, aes(x=.45, y=0.88, label=n),color="blue", inherit.aes=FALSE, parse=FALSE) +
+  #geom_text(data=eq,aes(x = 0.45, y = 0.88,label=V1),color="blue", parse = TRUE, inherit.aes=FALSE) +
   theme_bw()
 #ggsave("plots/distance-subjectivity.png",width=7.5,height=6)
 
