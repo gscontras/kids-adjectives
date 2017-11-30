@@ -3,7 +3,7 @@ num_round_dirs=$(echo */ | wc | awk '{print $2}')
 for i in `seq 1 $num_round_dirs`;
 do
 	cd round$i
-	submiterator getresults kids-subjectivity
-	submiterator reformat kids-subjectivity
+	submiterator getresults scopeTVJT
+	submiterator reformat scopeTVJT
 	cd ..
 done

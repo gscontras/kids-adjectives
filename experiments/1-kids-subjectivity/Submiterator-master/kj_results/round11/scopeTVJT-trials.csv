@@ -1,0 +1,82 @@
+workerid,trial_type,justification,response,condition
+0,one_slider_practice,Why did he need two cars? He is selfish and materialistic. ,0.12,NA
+0,one_slider_practice,"The dogs jumped on the table, but was rejected",0.46,NA
+0,one_slider,"The fence was easy to jump over, but the rock was harder",0.83,cond2
+0,one_slider,there was only TWO hippos. ,0.15,cond1
+0,one_slider,only one butterfly went to the city,0.88,cond2
+0,one_slider,"the ball rolled itself. only one ball moved. the dogs did not move, so they could not have hit the ball",0.96,cond2
+0,one_slider,"4 lions bought an egg, but only two did not buy a cookie",0.37,cond4
+0,one_slider,only 2 lizards climbed on the book ,0.01,cond3
+0,one_slider,"one dinosaur ate the bug, but the other did not",0.94,cond1
+1,one_slider_practice,he spent 4 cents and two cars at two cents each which equals four cents,1,NA
+1,one_slider_practice,the last dog said he wasn&quotechart going to jump on the table because he was too small,0,NA
+1,one_slider,the first two jumped over the rock the other two thought it was too big to jump over,1,cond4
+1,one_slider,there were only two hippos,0,cond2
+1,one_slider,one went to the city because it went to the forest the day before,0,cond1
+1,one_slider,one dog rolled the ball to the other end of the table,0,cond3
+1,one_slider,one lion bought a cookie,0,cond1
+1,one_slider,two lizards jumped on the book and two thought it was too high,0,cond4
+1,one_slider,one dinosaur ate the bug because it was easier then catching a fish,0,cond1
+2,one_slider_practice,He bought a silver car and a yellow car.,0.95,NA
+2,one_slider_practice,The third dog was too small,0.07,NA
+2,one_slider,Two frogs did not jump because the rock was too high for them.,0.94,cond3
+2,one_slider,There were only two hippos drinking milk.,0,cond3
+2,one_slider,Two butterflies went to the forest but only one butterfly went to the city.,0.89,cond2
+2,one_slider,One dog did roll their ball and the other dog did not.,0,cond2
+2,one_slider,Two lions bought a cookie but 4 lions bought an egg,0.28,cond4
+2,one_slider,Two lizards climbed on the book and two lizards did not because it was too high.,0.01,cond2
+2,one_slider,Two dinosaurs did not like to eat bugs,0.78,cond3
+3,one_slider_practice,He bought the silver car and the yellow car,0.99,NA
+3,one_slider_practice,The third dog did not jump on the table because he was too small.,0.03,NA
+3,one_slider,"The smaller two frogs thought the rock was too big, so they didn&quotechart jump over.",0.98,cond3
+3,one_slider,There were only two hippos that drank milk.,0.01,cond1
+3,one_slider,"Two butterflies DID go to the forest, but in total it was 4 that went to the forest. And two butterflies DID go to the city, so this is partially correct.",0.64,cond4
+3,one_slider,The first dog did roll his ball.,0.01,cond1
+3,one_slider,One lion did buy a cookie and one lion did not buy a cookie.,0.2,cond1
+3,one_slider,Two lizards did not climb on the book because they thought it was too high.,0.01,cond4
+3,one_slider,"This is partially correct. Two dinosaurs didn&quotechart eat bugs, but four dinosaurs ate fish.",0.48,cond4
+4,one_slider_practice,The smurf spend 4 cents on 2 cars,1,NA
+4,one_slider_practice,The third dog did not jump on the table,0,NA
+4,one_slider,Two frogs did not jump over the rock because it was too big,1,cond3
+4,one_slider,There were only two hippos,0,cond4
+4,one_slider,All four butterflies went to the forret,0,cond4
+4,one_slider,The first dog rolled his ball,0,cond1
+4,one_slider,Twos lions did not buy a cookie because they didn&quotechart like cookies.,1,cond3
+4,one_slider,Two lizards did not jump on the book,0,cond4
+4,one_slider,Four dinosaurs ate fish,0,cond4
+5,one_slider_practice,The smurf spent two pennies for each of the two cars and had one penny left of the five he started with.,0.99,NA
+5,one_slider_practice,Two dogs jumped on the table and the third did not because he was too small.,0.01,NA
+5,one_slider,Four frogs jumped over the fence but only two frogs jumped over the rock.,0,cond4
+5,one_slider,Only two hippos were in the video and the two hippos drank milk.,0,cond1
+5,one_slider,Two butterflies did go to the forest and two did not go to the city but one did.,1,cond2
+5,one_slider,One dog rolled his ball across the table and the other dog did not.,0.02,cond1
+5,one_slider,Four lions bought an egg and he is correct that two lions didn&quotechart buy a cookie.,0.49,cond4
+5,one_slider,Two lizards climbed on the book and two did not.,0,cond3
+5,one_slider,One dinosaur didn&quotechart eat bugs.,0.02,cond1
+6,one_slider_practice,It was based in the information provided by the video.,0.91,NA
+6,one_slider_practice,It was based in the information provided by the video.,0,NA
+6,one_slider,It was based in the information provided by the video.,1,cond4
+6,one_slider,there was only 2 hippos on the story,0,cond2
+6,one_slider,It was based in the information provided by the video.,1,cond4
+6,one_slider,It was based in the information provided by the video.,0,cond1
+6,one_slider,It was based in the information provided by the video.,0.95,cond1
+6,one_slider,It was based in the information provided by the video.,0,cond2
+6,one_slider,4 dinossaurs ate fish,0.02,cond4
+7,one_slider_practice,i saw that he got two cars,0.97,NA
+7,one_slider_practice,small dog did not as he is small,0,NA
+7,one_slider,only big frog did jump.,0.97,cond1
+7,one_slider,there are only two hippos,0,cond3
+7,one_slider,they stayed at home,0.97,cond3
+7,one_slider,only one dog did roll the ball,0.01,cond3
+7,one_slider,only one lion did buy ,0.84,cond1
+7,one_slider,only two did climb the book,0,cond4
+7,one_slider,four ate fish and only two ate bugs,0.73,cond4
+8,one_slider_practice,he bought 2 cars each for 2 cents,1,NA
+8,one_slider_practice,the third dog was too small to jump on the table,0.24,NA
+8,one_slider,the smaller dog did not jump over the rock only the fence,0.85,cond2
+8,one_slider,there were only 2 hippos,0.12,cond2
+8,one_slider,1 butterfly went to the city and one went to the country,0.12,cond2
+8,one_slider,the white dog did not he was afraid it would roll off the table,0.03,cond1
+8,one_slider,"all 4 lions bought an egg, only 2 lions bought a cookie",0.17,cond4
+8,one_slider,"only 2 lizards jumped on the book, 2 thought it was 2 high",0.03,cond4
+8,one_slider,"all ate the fish, but only 2 ate bugs",0.21,cond4

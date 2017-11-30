@@ -1,0 +1,83 @@
+workerid,trial_type,justification,response,condition
+0,one_slider_practice,It is consistent with the facts,1,NA
+0,one_slider_practice,THe last dog did not do it,0,NA
+0,one_slider,ONe of the frogs fail to do so,1,cond2
+0,one_slider,There were only two hippos,0,cond3
+0,one_slider,They stayed at home,1,cond3
+0,one_slider,One of them did,0,cond4
+0,one_slider,They bought one in total,0,cond1
+0,one_slider,Only two did it,0,cond3
+0,one_slider,It is consistent with the facts of the case,1,cond3
+1,one_slider_practice,It is a fact the smurf bought two cars,0.99,NA
+1,one_slider_practice,false  one dog did not jump on the table because it was to small,0.98,NA
+1,one_slider,Two frogs did jump over the fence but four in total  his info about the rock was correct,0.85,cond4
+1,one_slider,there was only two hippo&quotechars in the story therefore only two hippos could drink milk,0.02,cond1
+1,one_slider,one butterfly went to the city the other the forest,0.99,cond1
+1,one_slider,the first dog did roll it ball across the table,0,cond3
+1,one_slider,That is a correct statement.  One lion did buy a cookie the other did not,1,cond1
+1,one_slider,False  only two lizards jumped on the book.  The other two thought it was to high. ,0,cond3
+1,one_slider,One dinosaur did eat a bug.  Both dinosaurs opted not to eat the fish,0,cond1
+2,one_slider_practice,It&quotechars kind of right because they are both smurfs and in general the smurf did buy two cars. The problem is that it was the brainy smurf.,0.52,NA
+2,one_slider_practice,The third dog didn&quotechart jump on the table because he was too small.,0,NA
+2,one_slider,"Both frogs jumped over the fence, but the small frog didn&quotechart jump over the rock.",1,cond2
+2,one_slider,Only two hippos are in the story and drank milk.,0,cond3
+2,one_slider,"All four butterflies went to the forrest, but two didn&quotechart go to the city.",1,cond4
+2,one_slider,"One dog rolled his ball across the table, but the other was scared his would fall off so it didn&quotechart.",0,cond4
+2,one_slider,Two didn&quotechart buy cookies because they didn&quotechart like them.,1,cond3
+2,one_slider,Only two lizzards climbed on the book. The other two thought the book was too high and didn&quotechart climb on it.,0,cond4
+2,one_slider,"One dinosaur ate bugs, but the other didn&quotechart because he didn&quotechart like them.",0,cond1
+3,one_slider_practice,He purchased two cars for 2 cents each.,1,NA
+3,one_slider_practice,Only the first two dogs jumped on the table,0,NA
+3,one_slider,He&quotechars right except that 4 frogs jumped over the fence,0.8,cond4
+3,one_slider,There are only 2 hippos,0,cond3
+3,one_slider,It&quotechars true but one still went to the city.,0.84,cond1
+3,one_slider,One dog rolled his ball,0,cond2
+3,one_slider,Not really... 4 lions bought 4 eggs each.,0.3,cond4
+3,one_slider,"No, only 2 lizards climbed on the book",0,cond2
+3,one_slider,One dinosaur ate bugs.,0,cond1
+4,one_slider_practice,he used his pennies to get 2 cars ,0.99,NA
+4,one_slider_practice,one dog was too small to jump,0.02,NA
+4,one_slider,2 were big so they jumped and 2 were too small to jump so they did not,1,cond4
+4,one_slider,there are only 2 hippos in this scenario ,0.01,cond4
+4,one_slider,only one went to the city,0.99,cond2
+4,one_slider,the first dog rolled its ball ,0.02,cond3
+4,one_slider,the 2 lions did not buy a cookie or egg ,0.99,cond3
+4,one_slider,only 2 clime on the book and the other two thought that the book is too high ,0.02,cond3
+4,one_slider,they did not like the bugs nor the fish ,0.98,cond3
+5,one_slider_practice,it bought two cars,0.98,NA
+5,one_slider_practice,they didnt all jump on the table,0,NA
+5,one_slider,they both jumped over the fence but the second didnt jump over the rock ,0.89,cond2
+5,one_slider,according to the scenario only two did,0.22,cond3
+5,one_slider,the same two butterflies that went to the forest didn&quotechart go to the city,0.92,cond4
+5,one_slider,the first one did,0.06,cond1
+5,one_slider,"of the two in the scenario, the first one did",0.24,cond1
+5,one_slider,only two did,0.14,cond1
+5,one_slider,two of the first who ate the fish didn&quotechart eat the bugs,0.77,cond4
+6,one_slider_practice,He bought 2,0.84,NA
+6,one_slider_practice,"They didn&quotechart
+",0.13,NA
+6,one_slider,all frogs jumped over the fence,0,cond4
+6,one_slider,2 hippos drank milk,0,cond4
+6,one_slider,"4 went to the forest, but only 2 went to the city",0.51,cond4
+6,one_slider,One dog rolled its ball,0.05,cond3
+6,one_slider,"4 lions bought an egg, but only 2 bought a cookie",0.26,cond4
+6,one_slider,2 lizards jumped on the book,0.02,cond3
+6,one_slider,they didnt,0.85,cond1
+7,one_slider_practice,Because he did,0.99,NA
+7,one_slider_practice,Smallest one did not,0.01,NA
+7,one_slider,Only one frog did not jump over the rock,0.98,cond1
+7,one_slider,Only two hippos drank milk,0.02,cond1
+7,one_slider,Only one didn&quotechart go to the city,0.97,cond1
+7,one_slider,One dog did roll his ball,0.02,cond1
+7,one_slider,Only one lion bought both,0.97,cond2
+7,one_slider,Two lizards JUMPED on the book,0.02,cond3
+7,one_slider,Only one ate a bug and one did not,0.98,cond1
+8,one_slider_practice,Brainy bought the silver car and a yellow car. Then he was done buying cars. ,0.98,NA
+8,one_slider_practice,The small dog did not jump on the table because he acknowledged he was too small. ,0.01,NA
+8,one_slider,"Two frogs did jump over the fence and two frogs did not jump over the rock. So, the puppet was mostly right. Except in total, four frogs jumped over the fence. ",0.82,cond4
+8,one_slider,"In this story, there were only two hippos, so it&quotechars not possible that three hippos could have drank milk. ",0.01,cond3
+8,one_slider,"The two butterflies did go to the forest. The puppet is also correct that two butterflies did not go to the city, because one butterfly stayed behind in the forest while the other one went to the city.",0.95,cond2
+8,one_slider,"That is not a true statement, because the first dog did indeed roll his ball on the table. ",0.01,cond2
+8,one_slider,That is a true statement that two of the lions did not buy cookies. ,0.9,cond3
+8,one_slider,"Two of the lizards did get on the book, but the other two did not because the book was too high. ",0.02,cond3
+8,one_slider,One of the dinosaurs did eat a bug because it couldn&quotechart catch a fish. ,0.06,cond1

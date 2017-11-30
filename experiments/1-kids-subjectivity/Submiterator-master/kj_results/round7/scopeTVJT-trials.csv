@@ -1,0 +1,82 @@
+workerid,trial_type,justification,response,condition
+0,one_slider_practice,"Two cars, a yellow and a silver one, were both bought. ",0.89,NA
+0,one_slider_practice,Only two dogs jumped on the table. One was too small. ,0.03,NA
+0,one_slider,Two large ones out of the four frogs jumped. ,0.97,cond3
+0,one_slider,Only two hippos drank the milk.,0.04,cond2
+0,one_slider,Only one of the butterflies went to the city from the two that went to the forest. ,0.97,cond2
+0,one_slider,One of the dogs rolled their ball while the other didn&quotechart. ,0.03,cond3
+0,one_slider,The puppet is somewhat right as two out of four lions did buy eggs and in fact all of them did. Only two out of the four lions bought a cookie though. So it&quotechars about right.,0.66,cond4
+0,one_slider,Only two of the four lizards jumped on the book. ,0.02,cond3
+0,one_slider,One dinosaur did eat a bug while the other didn&quotechart eat anything. ,0.05,cond1
+1,one_slider_practice,He bought two cars and had a penny left,0.96,NA
+1,one_slider_practice,The third dog didn&quotechart jump on the table.,0.01,NA
+1,one_slider,"One frog jumped over the rock, one did not",0.82,cond1
+1,one_slider,There were only two hippos.,0,cond4
+1,one_slider,Only one butterfly went to the city,0.97,cond1
+1,one_slider,One dog rolled his ball across the table.,0,cond1
+1,one_slider,"It is partially correct. All four lions bought eggs, only two bought cookies.",0.3,cond4
+1,one_slider,Only two lizards climbed on the book.,0.01,cond3
+1,one_slider,"Two of the dinosaurs did eat the fish and not the bugs, but the other two dinosaurs also ate the fish.",0.44,cond4
+2,one_slider_practice,The Smurf purchased a silver car and a yellow car for two pennies each in the story. ,1,NA
+2,one_slider_practice,The third dog did not jump on the table because he was too small. ,0,NA
+2,one_slider,The two smaller frogs decided that the rock was too big and decided not to attempt to jump over it. ,1,cond3
+2,one_slider,There were only two hippos in the story. ,0,cond2
+2,one_slider,"Two butterflies went to the forest, but one of them decided it didn&quotechart like it and decided to go to the city instead. ",0.78,cond2
+2,one_slider,"One of the dogs rolled its ball across the table, and one of them did not roll its ball. ",0,cond1
+2,one_slider,"Two of the lions did not buy anything from the store, including cookies. ",1,cond3
+2,one_slider,"None of the lizards climbed on the book. Two of them jumped on the book, and the other two decided the book was too high to jump onto. ",0.06,cond4
+2,one_slider,"Two dinosaurs ate fish, but so did the other two dinosaurs, making the statement that two dinosaurs ate fish technically true but possibly misleading. Two of the four dinosaurs did not eat bugs. ",0.88,cond4
+3,one_slider_practice,Brainy bought a silver car and a yellow car. He paid for two cars. ,1,NA
+3,one_slider_practice,The third dog did not jump on the table and said he was too small to do so. Only two out of three dogs jumped on the table. ,0,NA
+3,one_slider,"Both frogs jumped over the fence, but only the larger frog jumped over the rock. The small frog said he was too small to jump over the rock.",1,cond2
+3,one_slider,There were only two hippos available and present so only two were able to drink milk. ,0,cond2
+3,one_slider,"Only one butterfly went to the city, therefore the statement to the effect that ""two did not go"" is correct, as only one went to the city.",1,cond1
+3,one_slider,"As a dog did roll it&quotechars ball, the idea that no dogs did is incorrect. ",0,cond4
+3,one_slider,"The answer depends upon how the sentence is parsed. One lion bought a cookie and the other did not. Therefore, two lions didn&quotechart buy a cookie is correct. It is also incorrect, in the sense that one lion did buy a cookie. ",0.49,cond1
+3,one_slider,"Only two lizards climbed onto the book. The other two did not, stating their idea that the book was too high. ",0,cond3
+3,one_slider,"The depends upon how the puppet&quotechars sentence is parsed. One dinosaur ate one bug. The other did not. In this sense, the sentence is incorrect. The sentence is correct in the sense that the two dinosaurs did not eat bugs, only one ate a bug. It is also correct in the sense that only one bug was eaten, not ""bugs.""",0.67,cond1
+4,one_slider_practice,The smurf bought a yellow and silver car. ,1,NA
+4,one_slider_practice,The small dog did not jump on the table because he was too small. ,0,NA
+4,one_slider,"All of the frogs jumped over the fence,  but the two small frogs did not jump over the rock. ",0,cond4
+4,one_slider,There was only 2 hippos. ,0,cond3
+4,one_slider,Two butterflies went to the city and two stayed home. ,1,cond3
+4,one_slider,The second dog didn&quotechart roll it&quotechars ball because it was afraid it would roll off the table. ,0,cond2
+4,one_slider,"He&quotechars partially right depending how literal the statement is to be taken.  2 lions did buy a cookie,  but two lions did not.  Only 2 lions aslo bought a cookie",0.51,cond4
+4,one_slider,Only 2 lizards climbed on the book. ,0,cond4
+4,one_slider,"Partially correct depending how literal to take the statement like the lions question.  2 dinosaurs did in fact eat fish even though all of them did,  and only two dinosaurs ate bugs. ",0.5,cond4
+5,one_slider_practice,"Yes, he paid $.02 for the purchase of 1 car and then $0.02 more for the purchase of a second car.",0.98,NA
+5,one_slider_practice,The last dog said he would not jump on the table because he was too small.,0.01,NA
+5,one_slider,Two frogs did not jump over the rock because they said the rock was too high.,0.98,cond3
+5,one_slider,Only two hippos are mentioned in the story and only those two drink milk.,0.02,cond3
+5,one_slider,"One butterfly did go to the city, after having visited the forest the day before.",0.02,cond1
+5,one_slider,The first dog did roll his ball across the table. Only one dog did not roll his ball because he was afraid it would roll off the table.,0.02,cond4
+5,one_slider,The first lion bought a cookie. Only one of the two lions did not buy anything; a cookie nor an egg.,0.01,cond1
+5,one_slider,Only two of the four lizards climbed on the book. The other two lizards did not climb the book because they thought it was too high.,0.01,cond1
+5,one_slider,Two dinosaurs did not eat bugs because they didn&quotechart like bugs.,0.99,cond3
+6,one_slider_practice,The narrator said that the Smurf bought two cars.,0.97,NA
+6,one_slider_practice,The third dog did not jump on the table because he was too small.,0.02,NA
+6,one_slider,The two smaller frogs thought the rock was too big to jump over.,0.99,cond3
+6,one_slider,Two hippos drank milk.,0.02,cond1
+6,one_slider,Two butterflies went to the forest and two didn&quotechart go to the city.,0.98,cond4
+6,one_slider,One dog rolled their ball,0.01,cond4
+6,one_slider,Four lions bought an egg,0.04,cond4
+6,one_slider,Two lizards climbed on the book,0.02,cond2
+6,one_slider,Four dinosaurs ate fish,0.02,cond4
+7,one_slider_practice,The smurf bought 2 cars paying 2 cents per car.,0.99,NA
+7,one_slider_practice,The smallest dog did not jump on the table.,0,NA
+7,one_slider,All four frogs jumped over the fence. While only 2 of the 4 frogs jumped over the rock.,0.5,cond4
+7,one_slider,Only 2 hippos drank milk.,0,cond2
+7,one_slider,"Two butterflies went to the city, while the other 2 butterflies stayed home.",1,cond3
+7,one_slider,The brown dog rolled its green and orange ball to the edge of the table.,0,cond1
+7,one_slider,"Two lions didn&quotechart buy a cookie. But all 4 lions bought an egg, the puppet should have said all 4 lions brought an egg.",0.9,cond4
+7,one_slider,Only 2 lizards climbed on the book.,0,cond2
+7,one_slider,The puppet is correct. 2 dinosaurs did not eat a bug.,1,cond3
+8,one_slider_practice,He spent 4 pennies on the silver car and the yellow car.,0.99,NA
+8,one_slider_practice,No the last dog did not jump because he was too small,0,NA
+8,one_slider,They both jumped over the fence but the little one did not jump over the rock with the big one,1,cond2
+8,one_slider,I only saw two hippos drinking milk.,0,cond1
+8,one_slider,The two butterflies could have done with the two that went to the city but they stayed home.,1,cond3
+8,one_slider,The first dog clearly did roll the ball.,0,cond1
+8,one_slider,Only one lion didn&quotechart buy a cookie.,0,cond1
+8,one_slider,"No only two of the lizards jumped on the book, the other two stayed.",0,cond4
+8,one_slider,The purple dinosaur ate a lady bug so this isn&quotechart right.,0,cond1

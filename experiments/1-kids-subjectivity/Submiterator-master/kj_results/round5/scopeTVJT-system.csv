@@ -1,0 +1,10 @@
+workerid,OS,screenH,screenW,Browser
+0,Windows,1024,1280,Chrome
+1,Windows,768,1366,Chrome
+2,Mac,900,1440,Chrome
+3,Windows,1280,1024,Chrome
+4,Windows,768,1366,Chrome
+5,Mac,900,1440,Firefox
+6,Windows,1080,1920,Chrome
+7,Windows,768,1024,Chrome
+8,Windows,720,1280,Chrome
