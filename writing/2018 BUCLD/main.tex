@@ -1,0 +1,489 @@
+%BUCLD 2017 proceedings: 14 page limit for everything
+%% Cascadilla style requirements: http://www.cascadilla.com/bucld-style.html -- doublecheck to make sure they didn't change anything from what's here
+%% due Jan 25, 2018
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+\documentclass[10pt]{article}
+\renewcommand{\footnotesize}{\small} % change footnote font size to 9pt (normally 8pt for 10pt text font)
+\usepackage[lmargin=2.0in, rmargin=2.0in, bmargin=2.0in, tmargin=1.75in]{geometry} %This package sets margins to BUCLD specs.
+\usepackage{times} % for using Times font throughout
+\usepackage{indentfirst}
+\usepackage{amssymb,amsmath} % for mathy things
+\usepackage[comma, longnamesfirst]{natbib} % purportedly better citation package that plays well with other .bst files, unlike apacite
+%% Useful packages
+\usepackage{graphicx,color,xcolor}
+
+\newcounter{examplecounter} % LSP: attempt to make simple example
+\newenvironment{example}{\begin{quote}%
+    \refstepcounter{examplecounter}%
+  (\arabic{examplecounter})%
+  \quad
+}{%
+\end{quote}%
+}
+
+\usepackage{multirow}					%For spanning multiple rows in a tabular environment
+\usepackage{multicol}						%For spanning multiple columns in a tabular environment
+\usepackage{tipa}						% IPA package
+\usepackage{titlesec} % for allowing extra levels of subsection, dots after section numbers
+\setcounter{secnumdepth}{5} % how many subsections (up to 5)
+\titlelabel{\thetitle.\quad} % should add dot after section header
+\usepackage{tikz} % for drawing figures
+
+\usepackage{linguex}
+\usepackage{qtree}
+
+% to make all the sections 10pt
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+
+\setlength{\bibsep}{0pt} % to get rid of extra whitespace lines between citation entries in the references
+\setlength{\bibhang}{0.25in} % to make sure hanging indent for references in 0.25in
+
+\newcommand{\gcs}[1]{\textcolor{blue}{[gcs: #1]}} 
+\newcommand{\gkb}[1]{\textcolor{magenta}{[gkb: #1]}} 
+\newcommand{\lsp}[1]{\textcolor{violet}{[lsp: #1]}} 
+
+
+%-------------------------TITLE STUFF
+\title{
+\vspace{-11mm} % to get rid of extra vertical space above title
+\large %\large needed to make it 12pt
+\textbf{Little lexical learners: 
+%Quantitatively assessing the development \\
+%of adjective ordering preferences \\
+Quantitatively assessing the development of adjective ordering preferences \\
+%using child-directed and child-produced speech corpora \\
+\vspace{10pt}
+\normalsize % back to 10pt
+Galia Bar-Sever, Rachael Lee, Gregory Scontras, and Lisa Pearl\thanks{Galia Bar-Sever, University of California, Irvine, gbarseve@uci.edu.
+Rachael Lee, University of California, Irvine, rachaejl@uci.edu.  
+Gregory Scontras, University of California, Irvine, g.scontras@uci.edu. 
+Lisa Pearl, University of California, Irvine. lpearl@uci.edu.   
+% and thanks to all the people (fill this in) 
+Thanks to the audiences and organizers of BUCLD 2017 and CAMP 2017. Anything we got wrong isn't their fault.}  %\thanks adds starred footnote 
+} 
+\vspace{-16mm} % to get rid of extra vertical space after authors
+}				
+
+\date{} % to exclude date
+
+\usepackage{tabularx}
+
+%%%%%%%%%%%%%%%%%%%%%% Document
+\begin{document}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\noindent % to prevent indenting the line below
+\textit{BUCLD 42 Proceedings} \\
+\textit{To be published in 2018 by Cascadilla Press}\\
+\textit{Rights forms signed by all authors} 
+{\let\newpage\relax\maketitle} % to prevent a new page from happening after title
+
+% no abstract - skip two lines and then start text
+\normalsize % to make sure we're back to 10pt
+\section{Introduction}
+\label{sec:intro}
+Adults have robust ordering preferences that determine the relative order of adjectives in multi-adjective strings: this is why \textit{small grey kitten} and \textit{nice round penny} are preferable to \textit{grey small kitten} and \textit{round nice penny}. 
+Adults are reliably and robustly uncomfortable with the latter options, 
+yet are typically unable to pinpoint why they have this reaction.
+Notably, these preferences surface for any multi-adjective string, even ones never before encountered: English adults would probably prefer \textit{tiny green magical mouse-riding gnomes} to \textit{mouse-riding magical green tiny gnomes}, even though it is unlikely they have encountered these adjectives strung together before. 
+Even more remarkable than the robustness and productivity of these preferences in English is the fact that these ordering preferences surface in a variety of unrelated languages, both those with pre-nominal adjectives (like English) and those with post-nominal adjectives that follow the modified noun (for discussion, see \citealt{dixon1982,sproat1991cross}).
+
+When it comes to the source of these preferences, there have been a number of hypotheses. 
+% not just transparent reflection of input frequency
+The null hypothesis for adults would hold that they simply repeat back what they hear when forming multi-adjective strings, reflecting the item-level statistics of their input.
+However, an input frequency strategy is limited in its productivity (if you haven't heard it, you don't have a preference about it) and adults are not limited this way. 
+Importantly, because of their productivity, these preferences appear to be based on abstract representations, rather than simply reflecting  the positioning of specific adjectives in the input. %Adult productivity therefore suggests that adults are using a more abstract representation for their adjective ordering preferences.
+
+
+But how exactly do adults represent these ordering preferences?
+%, and how do they develop that knowledge representation?
+Prevalent approaches in linguistics advance the idea that adult adjective ordering is determined by abstract syntax, with adjectives grouped into lexical semantic classes that are hierarchically ordered \citep{dixon1982,Cinque1994}. These lexical classes and their hierarchical ordering would then serve as primitives in the representation of the preferences.
+Yet why should these classes be ordered the way they are, and how do we handle adjectives that do not fit neatly into a clear lexical class? 
+
+  Recently, \cite{scontras2017subjectivity} identified adjective subjectivity as a robust predictor of adult ordering preferences, with less subjective adjectives preferred closer to the modified noun; they advanced the hypothesis that ordering preferences---and the lexical class ordering observed cross-linguistically---derive from the perceived subjectivity of the adjectives. Thus, perceived subjectivity would serve as a primitive of the adult representation of adjective ordering. %preferences. %This would also mean that it wouldn't matter if an adjective didn't have a clear lexical class it would fit into--all that matters would be it's relative subjectivity.
+ %% also, development is currently a mystery
+ % When & how does this knowledge develop (=stable adjective ordering preferences) = unknown
+%However, despite the cross-linguistic stability, it remains unknown when and how the preference develops.
+
+Still, little is known about the development of these adjective-ordering preferences in children, other than that these preferences do in fact develop \citep{bever1970cognitive,martin1972preferred,hare1978development}. 
+%% let's see when these representations emerge
+% the role of input frequency vs.~lexical classes vs.~subjectivity in adjective ordering preferences, we look at the early development of these preferences in young children: when does abstract knowledge emerge, and how is this knowledge represented?
+The current paper assesses {when} more abstract knowledge about adjective ordering emerges, how that knowledge gets represented, and whether the knowledge representation matches what we believe to be active in adults. To perform this assessment, we use corpus analysis and quantitative metrics to connect children's linguistic input, potential underlying representations regarding adjective ordering, and linguistic output, thereby arriving at a clearer picture of children's knowledge in this domain.
+% mini-summary %can include for SCIL if we don't need Arial
+
+
+% In the rest of this paper, we first 
+% % background
+% present relevant background for the competing hypotheses surrounding adult knowledge of adjective ordering, as well as a review of child behavioral studies aimed at understanding their preferences. 
+% % quantitative framework
+% We then describe our corpus of English child-produced and child-directed speech and  present our quantitative metrics for assessing the representational hypotheses. 
+% We find that a more abstract representation does not emerge until four years old, and this representation appears to be based on ordered lexical classes rather than subjectivity. 
+% We conclude by discussing our findings, attempting to reconcile the emerging picture of children's knowledge with the representational knowledge assumed for adults.
+
+\section{Previous accounts of adjective order}
+\label{sec:background}
+
+We start by reviewing relevant background for the competing hypotheses surrounding adult knowledge of adjective ordering. We then review behavioral studies aimed at understanding children's preferences. 
+
+\subsection{The lexical class hypothesis}
+The lexical class hypothesis begins with the assumption that adjectives come pre-sorted into classes according to their semantic properties: \textsc{color} adjectives group together, \textsc{size} adjectives group together, etc. To account for adjective ordering, these classes correspond to a deterministic hierarchy that maps adjective strings to their linear order, as in \ref{dixon}; higher positioning in the hierarchy leads to greater distance from the modified noun. 
+
+\ex. \label{dixon}
+\emph{Lexical semantic class hierarchy from \cite{dixon1982}}:\\
+\textsc{value} $>$ \textsc{dimension} $>$ \textsc{physical property} $>$ \textsc{speed} \\
+$>$ \textsc{human propensity} $>$ \textsc{age} $>$ \textsc{color}
+
+As proposed by \cite{dixon1982}, these hierarchical lexical semantic classes form part of a speaker's internal grammar and  the lexical classes themselves are universal, existing in all human languages regardless of differences in the morpho-syntactic expression of these semantic types. 
+In an attempt to formalize the linear ordering of these lexical semantic class hierarchies, \cite{Cinque1994} proposed a fully syntactic account of ordering preferences whereby the individual classes project their own phrasal structure, with one phrase hierarchically dominating another. Under a syntactic account, in \textit{small grey kitten} the \textsc{color} adjective appears closer to the noun than the \textsc{size} adjective because the adjective phrase projected by  \textit{small} hierarchically dominates the adjective phrase projected by \textit{grey}. This hierarchical ordering gets expressed as the linear order of adjectives modifying a noun. The proposal has been elaborated on since its initial formulation, with recent authors proposing even richer structure, as in \ref{scott} (see also \citealt{laenzlinger2005}).
+
+\ex. \label{scott}
+\emph{Phrase structure proposed by \cite{scott2002}}\\[3pt]
+{\small \Tree [.Subj.CommentP [.AP \emph{cute} ] [.Subj.CommentP$'$ $e$ [.SizeP [.AP \emph{small} ] [.SizeP$'$ $e$ [.LengthP $e$ [.ColorP [.AP \emph{grey} ] [.ColorP$'$ $e$ [.NP \emph{kitten} ] ] ] ] ] ] ] ] }
+
+
+Throughout this work on lexical classes, authors have disagreed about the precise specification of the classes themselves. \citeauthor{dixon1982}'s classes in \ref{dixon} gave way to \citeauthor{Cinque1994}'s (\textsc{possessive}, \textsc{speaker-oriented}, \textsc{subject-oriented}, \textsc{manner/ thematic}), which depart from the classes proposed by \cite{sproat1991cross} (\textsc{quality}, \textsc{size}, \textsc{shape}, \textsc{color}, \textsc{provenance}). Worse, authors often disagree about the fine details of the class orderings. Still, despite the fact that it is hard to settle on \emph{the} universal adjective classes, it has been shown that a certain ordering of adjective classes goes some way in explaining the patterns observed. What this collection of research does not address is where the hierarchy comes from in the first place: supposing \textsc{size} adjectives do syntactically dominate \textsc{color} adjectives, why should this be the case and not the reverse? This approach also relies on an ability to identify the appropriate lexical semantic class for any given adjective, enforcing a sorting into discrete bins based on a static meaning. What about adjectives that fail to fall into a semantic class?
+
+\subsection{The subjectivity hypothesis}
+
+In an attempt to address the concerns facing the lexical class hypothesis head-on, recent work by \cite{scontras2017subjectivity} advances the hypothesis that aspects of an adjective's meaning determine its relative position in a multi-adjective string. \citeauthor{scontras2017subjectivity} propose that the perceived subjectivity of the property an adjective names influences its ordering. This subjectivity hypothesis states that less subjective adjectives are preferred closer to the modified noun than adjectives that are more subjective (see also \citealt{hetzron1978relative,hill2012beauty}). % \gcs{check the Hetzron citation} \gkb{fixed it!}. 
+
+\citeauthor{scontras2017subjectivity}~operationalized subjectivity as the potential for faultless disagreement between two speakers about whether an adjective applies to some object \citep{barker2013,kennedy2013,kolbel2004}. In a test of faultless disagreement, two speakers are presented with an object (say, a kitten); the speakers then disagree about whether the object holds some property (say, being small). To the extent that both speakers can be right while they disagree, the property (and the adjective that names it) admits that degree of faultless disagreement. %, which stands proxy for its subjectivity. 
+In other words, an adjective's subjectivity is defined by how much disagreement speakers can have about that adjective without one of the speakers necessarily being wrong. An adjective like \textit{small} admits a relatively high degree of faultless disagreement (two people can disagree about whether they consider an object small), and is therefore relatively subjective. In contrast, an adjective like \textit{grey} is relatively objective: when two people disagree about whether something is grey, one of those people is likely to be wrong. Surprisingly, \citeauthor{scontras2017subjectivity} found that participants' estimates of faultless disagreement matched their ratings for adjective ``subjectivity'' ($r^2 = .91, 95\%\ \textrm{CI}\ [.86, .94]$).
+%To put it even more concretely, in the phrase "lovely stone house", what can be considered "stone" is much narrower than what can be considered "lovely". Or if two people were to look at a house and one said it was a stone house and one said it wasn't, one of those people has to be wrong. Therefore, "stone" is far less subjective than "lovely", and would necessarily be placed closer to the noun  than "lovely".
+So, simply asking adults how ``subjective'' they believe an adjective to be (a metalinguistic task) can serve as a proxy for the potentially more ecologically valid faultless disagreement task.
+
+To get a clearer picture of the English ordering preferences that need to be accounted for, \citeauthor{scontras2017subjectivity}~measured ordering preferences in a behavioral experiment; participants indicated the preferred ordering for multi-adjective strings (e.g., \textit{small grey kitten} vs.~\textit{grey small kitten}). To ensure that the behavioral measure captured the implicit knowledge that speakers use when forming multi-adjective strings, \citeauthor{scontras2017subjectivity}~compared their measure against naturalistic multi-adjective strings from corpora. Finding a high correlation between the behavioral measure and corpus statistics ($r^2 = .83, 95\%\ \textrm{CI}\ [.63, .90]$), \citeauthor{scontras2017subjectivity}~concluded that the preferences that were measured accurately capture speaker knowledge.
+
+To test the subjectivity hypothesis, \citeauthor{scontras2017subjectivity}~used their estimates of adjective subjectivity to predict the preferred adjective orderings. They found that adjective subjectivity accounts for between 51\% and 88\% of the variance in the ordering preferences. In other words, subjectivity does predict adjective ordering, thus offering a cognitive explanation for a linguistic universal. Recent work by \cite{hahnetal2017} %\gcs{add hahn citation} 
+shows that perceived subjectivity influences adjective ordering even in an artificial language paradigm with novel adjectives. This finding lends support to the idea that adults attend to subjectivity (and not simply to the lexical class statistics of their input) as they form multi-adjective strings. Given its promise in accounting for adult knowledge of adjective ordering, we might reasonably wonder about the source of this subjectivity-based knowledge. 
+
+\subsection{The development of adjective ordering preferences}
+The cross-linguistic robustness of ordering preferences has led many researchers to conclude that the knowledge underlying these preferences is innate, pre-specified as part of the Universal Grammar that shapes human language. Part of the appeal of the subjectivity hypothesis is that it allows us to move away from claims of innateness (and the puzzle of genetically specifying linguistic structure). Instead, the subjectivity hypothesis favors  an account where subjectivity awareness develops as we use language to communicate; after all, the potential for faultless disagreement is a problem all speakers must attend to. To better understand the role of subjectivity in ordering preferences and the pressures that lead to it, we must therefore ask whether this knowledge is present from the start, or whether it develops---perhaps in stages---into what we observe as the adult state. 
+
+There have been several studies examining adjective ordering preferences in children, but they have not been successful in answering this question. Still, the existing evidence at least suggests that the preferences do in fact develop.
+
+\cite{bever1970cognitive} found that with children between two and five years of age, the younger children were more likely to repeat unnatural adjective orderings such as \textit{the plastic large pencil}; older children corrected the phrase to \textit{the large plastic pencil}. We might therefore conclude that the younger children fail to demonstrate stable adjective ordering preferences. However, \cite{martin1972preferred} attempted to recreate \citeauthor{bever1970cognitive}'s experiment but were unable to replicate his findings. This replication failure led \citeauthor{martin1972preferred} to suggest that the original repetition task is not a reliable measure of adjective ordering preferences. In its place, they   used a production task, finding that three- and four-year-olds produced phrases with adjectives denoting \textsc{cleanliness} closer to the noun than \textsc{color} adjectives (e.g., \textit{yellow clean house}), while the adult preference is for \textsc{color} adjectives to appear closer (i.e., \textit{clean yellow house}). This result provides  evidence that children's preferences differ from adult preferences, but only with respect to adjectives of \textsc{cleanliness} and \textsc{color}. A later study by \cite{hare1978development} had children in grades one through five arrange three adjectives of \textsc{size}, \textsc{color}, and \textsc{material} to create natural adjective phrases; children in each succeeding grade level chose the adult preferred order of \textsc{size}--\textsc{color}--\textsc{material} (e.g., \textit{little yellow rubber duck})
+more often than children in the preceding grade level. 
+
+These developmental studies leave much unsettled, but they do suggest that adjective ordering preferences develop or strengthen over time. However, there is disagreement among these studies on the age of acquisition, and what the developmental trajectory looks like. Moreover, none of these studies attempt to tie children's knowledge to adjective subjectivity. If in fact the perceived subjectivity of adjectives is what adults are using to inform their adjective ordering preferences, we ought to wonder when children begin to deploy this strategy. 
+
+Notably, this question becomes more complicated in light of recent work showing that children may not have reliable estimates of subjectivity until around the age of seven or eight \citep{fousheesrinivasan2017}. If subjectivity is not available but children still demonstrate clear ordering preferences, how are these preferences acquired from the input children receive and represented with their available cognitive resources? It may be possible (indeed, likely) that children evolve through various stages of knowledge representation for their adjective ordering preferences. To investigate this knowledge and its stages of development, we examine children's production of multi-adjective strings in light of the input they are receiving at different ages.
+
+%In summary, adults demonstrate robust adjective ordering preferences, not only in English but cross-linguistically. Various theories and approaches have attempted to address how adults form these preferences. So far, it appears that subjectivity presents the best performing hypothesis for adult formation of adjective ordering preferences. However, little is known about the developmental trajectory of these preferences, just that children move from a state where their preferences are not adult-like to a more adult-like state. What representational strategy (or strategies) children are using in the intervening time to form their preferences is unknown.
+
+
+\section{Quantitatively assessing representational hypotheses}
+
+\subsection{Corpus data}
+
+To identify the representations underlying the development of adjective ordering preferences, we assess naturalistic child input in the form of child-directed speech and naturalistic child output in the form of child-produced speech; data come from the CHILDES database \cite{macwhinney2000childes}.
+We focus on the morphologically annotated corpora in the North American datasets for children between the ages of two and four, yielding 
+ 688,428 child-directed and 1,069,406 child-produced utterances. 
+After extracting all instances of adjective-adjective-noun (\textbf{AdjAdjN}) strings, 
+%% how many adj adj noun strings, and how many adjectives total
+we arrived at the counts in Table \ref{counts}.
+%identified 3,066 AdjAdjN strings in child-directed speech (involving 6,132 adjective tokens of 383 types) and  975 AdjAdjN strings in child-produced speech (involving 1,986 adjective tokens of 232 types).
+
+%\lsp{Probably best to merge this into one table?}\gkb{Agreed!}
+%% corpus stats table
+\begin{table}[!ht]
+\centering
+\begin{tabular}{c | r | r | r || r | r | r |}
+\cline{2-7}
+& \multicolumn{3}{c||}{\textbf{Child-directed data}} & \multicolumn{3}{c|}{\textbf{Child-produced data}} \\
+\hline
+{\textbf{age}} & {\textbf{\# AdjAdjN}} & {\textbf{\# tokens}} & {\textbf{\# types}} &{\textbf{\# AdjAdjN}} & {\textbf{\# tokens}} & {\textbf{\# types}} \\ 
+\hline
+2 & 1440 & 2880 & 131
+& 466 & 932 & 79 \\
+\hline
+3 & 881 & 1762 & 128 
+& 274 & 584 & 72 \\
+\hline
+4 & 745 & 1490 & 124
+& 235 & 470 & 81 \\
+\hline
+\end{tabular}
+\caption{
+Number of AdjAdjN strings and both the adjective tokens and adjective types comprising these strings per age in the morphologically-tagged North American CHILDES corpora.
+} \label{counts}
+\end{table}
+
+
+\subsection{Analysis of direct repetitions}
+We first asked whether children's AdjAdjN productions are simply direct repetitions of AdjAdjN strings they had heard. For example, is a child simply repeating \textit{big bad wolf} because she just heard it in her input? If most child productions are due to direct repetition, it is unlikely that these productions reflect any sophisticated generative process on the part of the child that transforms the child's input into the child's output AdjAdjN strings. In other words, it is unlikely that the child possesses knowledge of adjective ordering preferences at all.
+
+Fortunately, our analysis revealed that only 0.50\% of all child-produced %\mbox{
+Adj AdjN
+%} 
+strings in our corpus were direct repetitions of an AdjAdjN string heard immediately prior from an adult.\footnote{
+%\lsp{Check that this is the right characterization} 
+Adults produced more direct repetitions in child-directed speech, although the amount was still minimal:
+% 3.46-0.50
+2.96\% of child-directed AdjAdjN strings were direct repetitions.%---still a minimal amount of repetitions.
+}
+The absence of repetitions in children's productions suggests that children are generating the AdjAdjN strings they produce based on some transformation of the input they hear. That is, they are internalizing some representation based on their input with AdjAdjN strings and using that representation to generate the AdjAdjN strings they produce as output. 
+The question the becomes which representations best fit children's observed output at ages two, three, and four, based on their input at these ages.
+
+\subsection{The representational hypotheses}
+We consider three representational hypotheses that could underlie children's adjective ordering preferences. The first two correspond to the two potential adult representations discussed in Section \ref{sec:background}: representations based on (i) hierarchically ordered adjective \textbf{lexical classes} and 
+(ii) perceived \textbf{subjectivity} of adjectives.
+Both hypotheses require children to create some abstraction across individual adjective lexical items (i.e., in terms of lexical class or perceived subjectivity), and then order adjectives with respect to this abstraction.
+In contrast, the third representational hypothesis we consider is a simpler item-based approach, and does not require additional abstraction. 
+\
+This hypothesis states that children track the \textbf{input frequency} of adjectives appearing in certain positions in multi-adjective strings, and their productions mirror the frequencies observed in the input. In particular, for each adjective, children would pay attention to how often it appears in the \textbf{\textit{1-away}} position closest to the noun vs.~the \textbf{\textit{2-away}} position farther from the noun (e.g., 
+%\gcs{we need to be consistent when it comes to italicization vs.~quotation} 
+\textit{small$_{2-away}$ grey$_{1-away}$ kitten}).
+%% justification for item-based
+This input frequency approach corresponds to the null hypothesis discussed in Section \ref{sec:intro}, and serves as one of the simplest approaches to adjective ordering preferences if young children are able to track the statistical distributions of adjectives in their input. This statistical learning ability seems cognitively plausible, given evidence from many areas of language development demonstrating very young children's statistical learning abilities
+(e.g., \citealt{saffranetal1996,mayeetal2002,gerken2006,mintz2006,xutenenbaum2007,mayeetal2008,smithyu2008,dewarxu2010,feldmanetal2013,gerkenknight2015,gerkenquam2017}, among others).
+
+
+\subsection{Empirical grounding of the  representational hypotheses}
+
+Each potential representation requires certain information to be known about an adjective: lexical class, perceived subjectivity, or positional input frequency.
+For lexical class, %\lsp{describe the process a bit more -- I took a stab at it but it may need tweaking to be completely accurate}
+%% first see if it was assigned in SDG
+we first relied on the 13 %\gcs{how many lexical classes did we use?} \gkb{are we including X category in this number?} \gcs{yup!} 
+lexical classes and adjective assignments reported in \cite{scontras2017subjectivity}, which derived from a synthesis of previous literature \citep{dixon1982,sproat1991cross}; we inferred a hierarchical ordering of these classes on the basis of the behavioral data reported by \citeauthor{scontras2017subjectivity} 
+%This accounted for 5.3\% of the adjectives in our corpus. \gkb{using original 26}\gcs{we should be using the }
+%% if not, analogize it to existing entry in SDG
+If an adjective had no lexical class entry in \cite{scontras2017subjectivity}, we attempted to analogize it to an existing entry based on similar meaning (e.g., \textit{teeny} is similar in meaning to \textit{small} and so was assigned to the \textsc{dimension} class). 
+%This accounted for another 1.8\% \gkb{do you mean just the child register terms or all of the adjs we assigned classes?} \lsp{I was thinking all the adjectives total that we had to work with -- so basically, scontras et al assignment + analogized assignment + we manually assigned it = 100\% of all the adjectives we had from our corpus}\gkb{The issue is that I don't think there's a difference in my records between the ones we analogized and the ones we manually assigned} of the adjectives.
+%% if not, manually assign
+If there was no clear analogy to an existing entry (e.g., \textit{ripe}), we manually assigned it to a lexical class via collective agreement by all four authors. %This accounted for the remaining 30.3\% of the adjectives.
+Some of the adjectives (62.6\% of adjective types but only 4.7\% of adjective tokens) %\gcs{is this types or tokens? would be good to get both numbers}\gkb{these are types, but i'll get tokens today} 
+wound up in the X ``elsewhere'' class as defined in \citeauthor{scontras2017subjectivity}; these adjectives did not neatly fit into any of the other class categories.
+%-- we should say something about that here so it makes sense to exclude them from the lexical semantic class analysis later on.} 
+Because the elsewhere class is so heterogeneous, its adjectives fail to cohere on the basis of meaning. As a result, this collection of adjectives does not stand as a lexical \emph{semantic} class, so %is unlikely that it a clear conclusion about whether it is overall ``closer'' or ``farther'' than another class cannot be determined, nor can a larger semantic meaning be drawn from its contents. Therefore, 
+we excluded its adjectives from the representational analyses described below.
+
+For perceived subjectivity, we obtained subjectivity scores from 108 adult participants on Amazon.com's Mechanical Turk crowdsourcing service, replicating the methodology of \cite{scontras2017subjectivity}. Participants were presented with 30 adjectives total (one at a time) in a random order and asked to indicate how ``subjective'' a given adjective was on a sliding scale; endpoints were labeled ``completely objective'' and ``completely subjective.'' To arrive at the perceived subjectivity score for a given adjective, responses were averaged across participants.
+% \lsp{again, describe the process -- may need tweaking to be completely accurate}
+% % first we relied on SDG if they had one
+% we relied on the subjectivity score reported in \cite{scontras2017subjectivity} if available. This accounted for \lsp{XX\%} of the adjectives.
+% % if not, get our own subjectivity score
+% For adjectives where a subjectivity score was not already available (e.g., child-register words like \textit{teeny}), we obtained  subjectivity scores from 108 adult participants on MTurk,  \lsp{of asking directly how subjective an adjective is?}.
+% This accounted for the remaining \lsp{XX\%} of the adjectives.
+ 
+For positional input frequency, we derived both 1-away and 2-away frequencies from the child-directed speech AdjAdjN strings in our corpus by calculating how often an adjective appeared in the 1-away vs.~2-away position in the input.
+
+\subsection{Quantitatively linking input to output}
+
+Recall that producing an AdjAdjN string requires transforming the input according to the underlying knowledge representation, and using that representation to generate the AdjAdjN string. For each representational hypothesis, we can define how this process would occur, thereby linking the child-directed AdjAdjN input to child-produced AdjAdjN output.
+% % introduce the positional thing up front
+We focus on how %and whether -- they all can generate either position (it's just a matter of how probable it is) 
+a given representational hypothesis would generate an adjective in the 2-away  vs.~the 1-away position when combined with another adjective in an AdjAdjN string.
+
+We consider the collection of child-produced AdjAdjN output at a particular age as a dataset $D$ that is produced according to any of the three representational hypotheses $h_i \in H$, where $H$ = \{$h_{lex}$, $h_{subj}$, $h_{freq}$\}. We select the hypothesis that is most likely to have generated the data in $D$ (i.e., the child productions) by calculating the likelihood of a given hypothesis $h$ generating the data $D$, $p(D | h)$. The representational hypothesis with the largest probability of generating $D$ (i.e., the highest likelihood) is the hypothesis that best matches children's output. 
+
+%\lsp{As I was working through this, it seemed to make more sense to present it starting from the likelihood and working up to the p2exp.} \gkb{makes sense to me!}
+
+We can conceive of $D$ as the set of  AdjAdjN strings involving different combinations of all the adjectives \emph{Adj} observed in the corpus. For example, $D$ might be the set \{\textit{grey furry kitten}, \textit{small grey kitten}, \emph{small grey kitten}, \textit{small furry kitten}\}, where \emph{Adj} is \{\emph{grey}, \emph{furry}, \emph{small}\}. To account for the  portion of the AdjAdjN strings involving a particular adjective $adj_x \in Adj$, we can calculate the likelihood of the data involving that adjective, $p(D_{adj_x} | h)$. 
+Continuing the example from above, the \textit{small} strings $D_{small}$ would be the set \{\textit{small grey kitten}, \emph{small grey kitten}, \textit{small furry kitten}\}; in this example, \textit{small} occurs in the 2-away position with probability 1.0. The \textit{grey} strings would form the set $D_{grey}$: \{\textit{grey furry kitten}, \textit{small grey kitten}, \emph{small grey kitten}\}; here, \textit{grey} occurs in the 2-away position with probability 0.33. Having calculated the likelihood of the data involving each individual adjective for a specific representational hypothesis $h_i$, we then multiply these individual adjective likelihoods to yield the likelihood for the whole dataset $D$ under that hypothesis, as shown in equation \eqref{eq:totallikelihood}.
+
+\setcounter{equation}{2} %% to make the numbering continue after the examples above
+\begin{equation} 
+\label{eq:totallikelihood}
+p(D|h_i) = \prod_{adj_x\in Adj} p(D_{adj_x}|h_i)
+\end{equation}
+%Equation 4: The total likelihood of the output data $D$ under $h_i \in H$ is the product of the individual adjective likelihood probabilities.
+
+We define the likelihood for an individual adjective $adj_x$ for a given hypothesis $h_i$
+%($p(D_{adj_x}|h_i)$) 
+as in equation \eqref{eq:likelihood}, which considers the number of times $N$ that $adj_x$ appeared in an AdjAdjN string in the output, 
+the number of times $t$ that $adj_x$ appeared in the 2-away position, and 
+the probability that $adj_x$ would appear in the 2-away position given the representational hypothesis $h_i$, $p_2exp(adj_x | h_i)$. 
+
+\begin{equation}
+\label{eq:likelihood}
+p(D(adj_x)|h_i) = \binom{N}{t}(p_2exp(adj_x|h_i))^t(1-p_2exp(adj_x|h_i))^{N-t}
+\end{equation}
+
+% concrete example to explain this
+To see how this equation works, consider $D_{grey}$ from above: \{\textit{grey furry kitten}, \textit{small grey kitten}, \emph{small grey kitten}\}. Suppose a given representational hypothesis $h_i$ predicts that \emph{grey} should appear in the 2-away position with a certain probability $p_2exp(adj_x|h_i)$. %, the expected probability of \emph{grey} occurring in 2-away position under $h_i$. 
+We compare this expected probability with the actual frequency of \emph{grey} occurring in the 2-away position to calculate the likelihood of $D_{grey}$ under $h_i$, $p(D(adj_x)|h_i)$; if the expected probability matches the actual frequency, the hypothesis does an excellent job of accounting for the child output. 
+
+%The likelihood of this collection of three AdjAdjN strings involves two components.
+To calculate the likelihood, we need to determine the number of ways of generating the pattern in $D_{grey}$ (i.e., \textit{grey} in the 2-away position twice and in the 1-away position once). This corresponds to $\binom{N}{t}$, the number of ways of generating $N$ AdjAdjN strings with \emph{grey} in the 2-away position $t$ times. Having determined the number of ways to generate the observed pattern, we then calculate the probability of generating the observed pattern given a specific representational hypothesis $h_i$. We first need to calculate the probability that \emph{grey} would appear in the 2-away position two times, $(p_2exp(adj_x|h_i))^t$. %\gcs{I think our excerpts of the equations should avoid specific variable values}\gkb{you mean without the subscripts?}
+To capture the full pattern, we also need to calculate the probability that \emph{grey} would appear in the 1-away position once, $(p_2exp(adj_x|h_i))^{N-t}$. By multiplying the probability of generating the observed pattern together with the number of ways we could have generated it, we arrive at the likelihood in equation (\ref{eq:likelihood}).
+
+%First, there are $\binom{3}{2}= 3$ ways of generating three AdjAdjN strings with this pattern (i.e., \textit{grey} in the 2-away position twice and in the 1-away position once). Second, there is the probability of generating the observed pattern: \textit{grey} in the 2-away position two of three times ($(p_2exp(adj_x|h_i))^t = 0.75^{2} = 0.5625$) and \emph{grey} in the 1-away position one of three times ($(1-p_2exp(adj_x|h_i))^{N-t} = (1-0.75)^{3-2} = 0.25$); the probability of this pattern is $0.5625*0.25 = 0.14$. We multiply the probability of this pattern with the number of ways of generating it to yield the likelihood, $p(D_{grey}|h_i)=3*0.14=0.42$.
+
+%As a concrete example, consider $D_{grey}$ from above: \{\textit{grey furry kitten}, \textit{small grey kitten}, \emph{small grey kitten}\}. Suppose a given representation hypothesis $h_i$ predicts that \emph{grey} should appear in the 2-away position with probability 0.75 (i.e., $p_2exp(adj_x|h_i)=0.75$). We can then use this expected probability along with the actual frequency of \emph{grey} occurring in the 2-away position to calculate the likelihood of $D_{grey}$ under $h_i$. The likelihood of this collection of three AdjAdjN strings involves two components. First, there are $\binom{3}{2}= 3$ ways of generating three AdjAdjN strings with this pattern (i.e., \textit{grey} in the 2-away position twice and in the 1-away position once). Second, there is the probability of generating the observed pattern: \textit{grey} in the 2-away position two of three times ($(p_2exp(adj_x|h_i))^t = 0.75^{2} = 0.5625$) and \emph{grey} in the 1-away position one of three times ($(1-p_2exp(adj_x|h_i))^{N-t} = (1-0.75)^{3-2} = 0.25$); the probability of this pattern is $0.5625*0.25 = 0.14$. We multiply the probability of this pattern with the number of ways of generating it to yield the likelihood, $p(D_{grey}|h_i)=3*0.14=0.42$.
+
+The calculation of $p_2exp(adj_x|h_i)$, the probability %Depending on the relevant representational hypothesis $h_i$, we calculate the probability 
+that a particular adjective $adj_x$ will appear in the 2-away position, depends on the hypothesis $h_i$ under consideration, as well as the input the child has encountered via child-directed speech. %This calculation of this probability differs with the hypothesis under consideration.
+For both the lexical class hypothesis $h_{lex}$  and the subjectivity hypothesis $h_{subj}$, the probability that $adj_x$ surfaces in the 2-away position in an AdjAdjN string depends on the kind of adjective it appears with. 
+% lexical class
+For $h_{lex}$, if $adj_x$ is combined with an adjective in a hierarchically-closer lexical semantic class, it should surface in the 2-away position 100\% of the time ($p=1.0$); if $adj_x$ is combined with an adjective in the same lexical class, it should surface in the 2-away position with chance probability ($p=0.5$). 
+% subjectivity
+For $h_{subj}$, if $adj_x$ is combined with an adjective perceived as more subjective, it should surface in the 2-away position 100\% of the time ($p=1.0$); if $adj_x$ is combined with an adjective perceived as equally subjective, it should surface in the 2-away position with chance probability ($p=0.5$).\footnote{
+We considered two adjectives to be perceived as equally subjective if
+their subjectivity scores were within 0.1 of each other; scores ranged from 0 to 1. %This was based on inspecting some graph of subjectivity scores.
+}
+These considerations represent the numerator in equation \eqref{eq:subj-lex}.
+
+\vspace{-15pt}
+
+%\begin{equation}
+\begin{multline} %% splitting long equations
+\label{eq:subj-lex}
+p_2exp(adj_x|h_i \in \{h_{lex}, h_{subj}\})  =  \\
+ \frac{f_{input}(<adj_x|h_i) + 0.5*f_{input}(=adj_x|h_i) +\alpha}{N_{input}(Adj) +\alpha*|Adj|}
+\end{multline}
+%\end{equation}
+
+In particular, $f_{input}(<adj_x|h_i)$ represents the number of adjective tokens in the input (i.e., the child-directed speech) that are either from a lexically-closer class than $adj_x$ (given $h_{lex}$) or are more subjective than $adj_x$ (given $h_{subj}$); the greater this number, the more we would expect the child to produce $adj_x$ in the 2-away position under the relevant hypothesis. Similarly, $f_{input}(=adj_x|h_i)$ represents the number of adjectives that are from the same lexical class as $adj_x$ ($h_{lex}$) or are equally subjective as $adj_x$ ($h_{subj}$); this number gets multiplied by $0.5$ to represent the chance probability that $adj_x$ would appear 2-away with adjectives of the same kind. We arrive at the probability of $adj_x$ appearing in 2-away position once we divide these counts by the total number of adjective tokens appearing in AdjAdjN strings in the input, $N_{input}(Adj)$. Both the numerator and the denominator of equation (\ref{eq:subj-lex}) contain the smoothing factor $\alpha = 0.5$, which is added to handle adjectives for which there are no observations; in the denominator, $\alpha$ is multiplied by the number of adjective types $|Adj|$.\footnote{
+To implement the idea that the target adjective $adj_x$ cannot combine with tokens of itself 
+%Because we are disallowing repetitions of the same adjective 
+(e.g., \textit{small small kitten}), the number of $adj_x$ tokens 
+%\lsp{Since the count is based on tokens, shouldn't we be subtracting off the number of tokens for the adjective? Ex: 5 instances of \textit{small} in the corpus, so when computing small, subtract off 5 for adjectives in the same class/subjectivity score in the numerator and subtract off those same 5 for the number of adjective tokens total in the denominator? If it was based on types, we would subtract off 1.} \gkb{Yes! This is actually what we did. This is why I shouldn't edit things late at night.} 
+%\lsp{phew!} 
+is subtracted from the counts of how many adjectives either are in the same lexical class or have the same subjectivity score in the numerator; this number is also subtracted from the total adjective token count in the denominator. 
+%This implements . \gcs{I wonder if we could get away without this footnote..}\gkb{probably?}
+%\lsp{This is vital if we want someone to be able to replicate what we did, though. Hopefully anyone who wants to do that will understand what we're saying here?}
+}
+%The numerator additionally includes a smoothing factor $\alpha=0.5$. The smoothing factor 
+
+
+A different calculation is used for $p_2exp$ for the input frequency representational hypothesis $h_{freq}$, as shown in equation \eqref{eq:base}. 
+The probability of $adj_x$ appearing in the 2-away position given $h_{freq}$ is a simple reflection of how often it appeared in the 2-away position in the input ($f_{2input}(adj_x)$) divided by the total number AdjAdjN strings in which $adj_x$ appeared at all ($N_{input}(adj_x)$). Again, we add the smoothing factor $\alpha$ to avoid assigning zero probability for adjectives not observed; in the denominator, $\alpha$ gets multiplied by $2$, corresponding to the two positional options for $adj_x$: 2-away vs.~1-away.
+
+\begin{equation}
+\label{eq:base}
+p_2exp(adj_x|h_i=h_{freq}) = \frac{f_{2input}(adj_x)+\alpha}{N_{input}(adj_x)+2*\alpha}
+\end{equation}
+
+Using equations \eqref{eq:totallikelihood}-\eqref{eq:base}, we can evaluate how probable it is that children would have produced the AdjAdjN strings in the child-produced output for a certain age, given the input they heard during that age and a particular representational hypothesis: lexical class, subjectivity, and input frequency.\footnote{We only included AdjAdjN strings in both the input and output sets where both adjectives in the string had been assigned a lexical class and a subjectivity score. This excluded 870 AdjAdjN strings in the child-directed input (23.6\%) and 178 AdjAdjN strings in the child-produced output (15.4\%). %\gcs{does this include the adjectives excluded on the basis of the elsewhere category?}
+}
+
+
+
+
+\section{Results}
+
+
+
+%\lsp{Given the hypothesis presentation above, we might want to reorder the tables below so input freq comes after lexical class and subjectivity} \gkb{will do!}
+%\lsp{Also, we either want to note we used the natural log or transform the scores into log base 10.} \gkb{I'll change the numbers to log base 10 tomorrow}
+
+Table \ref{tab:loglikelihoodscores} reports log likelihood scores for each representational hypothesis at each age. Because likelihood probabilities of an entire set of AdjAdjN output strings can be very small, we take the log of the likelihood probabilities for easier comparison. %Note that this transformation means scores that are more negative are lower probability (e.g., log$_{10}(0.1)=-1$, while log$_{10}(0.001)=-3$). 
+Note that because these numbers are logged, the smallest negative number for each age corresponds to the most probable representational hypothesis for that age. % for that age's output given that age's input. 
+ %That is, for example, we can only compare the age two numbers against each other, and cannot compare an age two number against an age three number because these numbers were calculated from different datasets (i.e., the child productions at age two vs. the child productions at age three).
+
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{ |c|c|c|c| }
+\hline
+\multicolumn{1}{|c}{} &
+\multicolumn{3}{|c|}{\textbf{representational hypotheses}} \\
+ \cline{2-4}%\hline
+ \textbf{age} & \textbf{lexical class} & \textbf{subjectivity} & \textbf{input frequency}  \\ 
+ \hline\hline
+ 2  & -145.4 & -119.3 & \textbf{-88.0} \\
+ %2  & -334.9 & -274.6 & \textbf{-202.6} \\ 
+ \hline
+ 3  & -71.2 & -70.8 & \textbf{-54.3} \\
+ %3  & -164.0 & -163.0 & \textbf{-125.1} \\ 
+ \hline
+ 4  & \textbf{-71.8} & -84.0 & -79.4 \\
+ %4  & \textbf{-165.2} & -193.5 & -182.9\\ 
+ \hline
+\end{tabular}
+\end{center}
+\vspace{-5mm} %% to get rid of weird spacing
+\caption{Log likelihood scores for each hypothesis. Scores range from 0 (best possible) to negative infinity (worst possible). The best score for each age is \textbf{bolded}. Each age should be looked at individually (i.e., numbers should only be compared across a row), since the datasets between ages differ.}
+\label{tab:loglikelihoodscores}
+\end{table}
+
+%\lsp{If we update numbers to log base 10, we'll have to adjust all the numbers in the text below so they match.}
+We find that the input frequency hypothesis---in other words, simply tracking the word-level position statistics---best accounts for children's productions at age two; the subjectivity hypothesis performs less well, and the lexical class hypothesis performs worst of all. At age three, the input frequency hypothesis continues to outperform the other two hypotheses, but at this age the lexical class and subjectivity hypotheses seem to be performing on a par. It is only at age four that we see one of the abstract representational hypotheses best accounting for children's productions: the lexical class hypothesis. %and three (age 2: -202.6 vs. -334.9 and -274.6; age 3: -125.1 vs. -164.0 and -163.0), However, the lexical semantic class hypothesis best accounts for child AdjAdjN productions at age 4 (-165.2 vs. -193.5 and -182.9).
+
+%\gkb{I like a lot of the wording of your notes here} \lsp{:D}
+In addition to diagnosing the most likely hypothesis, we can use these probabilities to examine the emergence of abstract knowledge representations. In particular, we can compare hypothesis probabilities against each other to determine how much less probable one hypothesis is than another at accounting for child productions at a particular age. To perform this comparison on logged probabilities, we subtract them; 
+%For normal (unlogged) probabilities, we divide to determine how much less probable something is: for example, $\frac{0.001}{0.1} = 0.01$.
+% For logged probabilities, this is equivalent to subtraction: log$_{10}$($\frac{0.001}{0.1}$) = log$_{10}$(0.001) - log$_{10}$(0.1) = -3 - -1 = -2 = log$_{10}$(0.01).
+the smaller the difference in log space, the closer the probabilities are in unlogged space. For our purposes, this method allows us to diagnose how close a worse-performing representational hypothesis is to the best-performing representational hypothesis at accounting for child-produced data. 
+Table \ref{tab:differencescores} reports these differences. Recall that at ages two and three, the best-performing hypothesis is the item-based input frequency representation, while the best-performing hypothesis at age four is the abstract lexical class hypothesis.
+
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{ |c|c|c| }
+\hline
+\multicolumn{1}{|c}{} &
+\multicolumn{2}{|c|}{\textbf{representational hypotheses}} \\
+ \cline{2-3}%\hline
+ \textbf{age} & \textbf{lexical class} & \textbf{subjectivity} \\ 
+ \hline
+ 2  & -57.4 & -31 \\ 
+ %2  & -132 & -72 \\ 
+ \hline
+ 3  & -16.9 & -16.5 \\ 
+ %3  & -38.9 & -37.9 \\ 
+ \hline
+ 4 & 0  & -7.6 \\ 
+ %4 & 0  & -28.3 \\ 
+ \hline
+\end{tabular}
+\end{center}
+\vspace{-5mm} %% to get rid of weird spacing
+\caption{How much less probable the abstract representational hypotheses are for the child productions at each age, compared against the best-performing hypothesis, and reported as log scores. Scores range from 0 (equally likely because it \textit{is} the most probable hypothesis) to negative infinity (infinitely less likely). %When a hypothesis becomes the best performing representation it is \textbf{bolded}.
+}
+\label{tab:differencescores}
+\end{table}
+
+We see that both abstract representational hypotheses perform better as children age, signaling the emergence of abstract knowledge about adjective ordering preferences. From age two to three, the lexical class hypothesis closes in on the lexical class hypothesis, eventually overtaking it by age four. We see a similar trajectory for the subjectivity hypothesis, although it never overtakes the best-performing hypothesis in our data, which ends at age four.
+%The lexical class hypothesis becomes closer to the input frequency hypothesis from ages two to three (-132 to -38.9) and overtakes it to become the best-performing hypothesis at age four.
+%The subjectivity hypothesis also becomes closer to the input frequency hypothesis from age two to three (-72 to -37.9) and continues to narrow the distance between it and the best-performing hypothesis (the lexical class hypothesis) at age four.
+ 
+\section{Discussion}
+
+%(ii) lexical class-based knowledge overtakes simple input frequencies around age 4, and 
+Our quantitative assessment of the development of adjective ordering preferences demonstrates that abstract knowledge is likely to underlie children's preferences at age four (but not earlier), and that this abstract knowledge is lexical-class-based rather than subjectivity-based. Children initially track the word-level statistics of their input when determining adjective ordering, but by age four they shift to a more abstract (and compact) representation based on lexical semantic class. 
+%(iii) subjectivity performs better relative to the winning hypothesis as children age, but it fails to emerge as the winning hypothesis by age four. 
+Given this developmental trajectory, it would appear that lexical semantic classes are a useful (and salient) tool for children as they move from simply tracking the statistics of their input to systematically organizing that knowledge. 
+
+To better understand the knowledge children are compressing into lexical-class-based representations, future computational work should examine the representations adults are using to form the input children receive. 
+Adults are known to adjust the complexity of their child-directed speech based on the child's age (e.g., \citealt{kunertetal2011}), and so it may be that the representations underlying child-directed adjective orderings vary depending on the age of the child being addressed. If adults are providing children with input of a fundamentally different character from what they are providing other adults---for example, by hyperarticulating positional differences between adjectives---we ought to understand the pressures that lead to that divergence.
+
+It remains unclear when %(or whether) 
+subjectivity replaces lexical classes as the underlying representation for adjective ordering preferences---this timing no doubt depends on children's development of the conceptual underpinnings of subjectivity, which occurs remarkably late \citep{fousheesrinivasan2017}. 
+%: when looking to create a more compact representation of their preferences, children organize adjectives by their lexical class. More generally, our results demonstrate that 
+Future behavioral work can assess children's perceived subjectivity of adjectives at different ages. The subjectivity scores used in our assessment derived from adult judgments, but children's estimates are likely to differ, given the sophisticated theory of mind involved in evaluating subjectivity. %Moreover, it could turn out to be the case that adult-like subjectivity awareness develops later than stable adjective ordering preferences, suggesting a role for these preferences in the development of subjectivity awareness.
+Whether these differences would better capture children's productive knowledge of adjective ordering remains an open question.
+
+
+
+
+
+%Future work combining behavioral and computational approaches can look cross-linguistically to see if these developmental patterns hold across a variety of languages. 
+
+%\gcs{we should decide whether to include DOI information for everything or nothing in the works cited}\lsp{I don't have strong feelings about this. If we're hurting for space, we can ditch the DOI. Relatedly, we can ditch some of the stat learning in kids references if we need to make up some space.} \gcs{I vote for more references and no DOIs} \gkb{I also vote no DOIs}
+
+%%%% BUCLD-style references formatting
+\small % to make it 9pt
+\bibliographystyle{language} % currently using language.bst, which uses full names 
+\bibliography{sample}
+
+
+\iffalse %%%% old bibliography
+%\vspace{2mm} %% some vertical space between text and refs
+\small
+\noindent \textbf{References}
+\renewcommand{\section}[2]{} %% get rid of big "References" header
+\bibliographystyle{apacite}
+\renewcommand{\bibliographytypesize}{
+\small
+}
+\bibliography{sample}
+\fi
+
+\end{document}

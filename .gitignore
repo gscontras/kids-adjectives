@@ -12,3 +12,13 @@ corpus/analysis/.Rhistory
 .DS_Store
 
 writing/CHP Thesis Proposal.signed.pdf
+
+*.aux
+
+*.blg
+
+*.dvi
+
+*.log
+
+*.ps

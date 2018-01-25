@@ -1,0 +1,188 @@
+\begin{thebibliography}{29}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Barker(2013)}]{barker2013}
+\textsc{Barker, Chris}. 2013.
+\newblock {Negotiating Taste}.
+\newblock \emph{Inquiry} 56(2-3).240--257.
+
+\bibitem[{Bever(1970)}]{bever1970cognitive}
+\textsc{Bever, Thomas~G}. 1970.
+\newblock The cognitive basis for linguistic structures.
+\newblock \emph{Cognition and the development of language} 279(362).1--61.
+
+\bibitem[{Cinque(1994)}]{Cinque1994}
+\textsc{Cinque, Guglielmo}. 1994.
+\newblock On the evidence for partial {N}-movement in the {R}omance {DP}.
+\newblock \emph{{Paths Towards Universal Grammar. Studies in Honor of Richard
+  S. Kayne}}, ed. by R~S Kayne, G~Cinque, J~Koster, J.-Y. Pollock, Luigi Rizzi
+  and R~Zanuttini, 85--110. Washington DC: Georgetown University Press.
+
+\bibitem[{Dewar and Xu(2010)}]{dewarxu2010}
+\textsc{Dewar, Kathryn~M}; and \textsc{Fei Xu}. 2010.
+\newblock {Induction, overhypothesis, and the origin of abstract knowledge:
+  Evidence from 9-month-old infants}.
+\newblock \emph{Psychological Science} 21(12).1871--1877.
+
+\bibitem[{Dixon(1982)}]{dixon1982}
+\textsc{Dixon, Robert~MW}. 1982.
+\newblock \emph{{Where have all the adjectives gone? and other essays in
+  semantics and syntax}}, vol. 107.
+\newblock Walter de Gruyter.
+
+\bibitem[{Feldman et~al.(2013)Feldman, Myers, White, Griffiths and
+  Morgan}]{feldmanetal2013}
+\textsc{Feldman, Naomi~H}; \textsc{Emily~B Myers}; \textsc{Katherine~S White};
+  \textsc{Thomas~L Griffiths}; and \textsc{James~L Morgan}. 2013.
+\newblock Word-level information influences phonetic learning in adults and
+  infants.
+\newblock \emph{Cognition} 127(3).427--438.
+
+\bibitem[{Foushee and Srinivasan(2017)}]{fousheesrinivasan2017}
+\textsc{Foushee, Ruthe}; and \textsc{Mahesh Srinivasan}. 2017.
+\newblock {Could both be right? Children's and adults' sensitivity to
+  subjectivity in language}.
+\newblock \emph{{Proceedings of the 39th Annual Meeting of the Cognitive
+  Science Society}}, 379--3384. London, UK: Cognitive Science Society.
+
+\bibitem[{Gerken(2006)}]{gerken2006}
+\textsc{Gerken, LouAnn}. 2006.
+\newblock {Decisions, decisions: Infant language learning when multiple
+  generalizations are possible}.
+\newblock \emph{Cognition} 98(3).B67--B74.
+
+\bibitem[{Gerken and Knight(2015)}]{gerkenknight2015}
+\textsc{Gerken, LouAnn}; and \textsc{Sara Knight}. 2015.
+\newblock Infants generalize from just (the right) four words.
+\newblock \emph{Cognition} 143.187--192.
+
+\bibitem[{Gerken and Quam(2017)}]{gerkenquam2017}
+\textsc{Gerken, LouAnn}; and \textsc{Carolyn Quam}. 2017.
+\newblock Infant learning is influenced by local spurious generalizations.
+\newblock \emph{Developmental Science} 20(3).
+
+\bibitem[{Hahn et~al.(2017)Hahn, Futrell and Degen}]{hahnetal2017}
+\textsc{Hahn, Michael}; \textsc{Richard Futrell}; and \textsc{Judith Degen}.
+  2017.
+\newblock Exploring adjective ordering preferences via artificial language
+  learning.
+\newblock California Meeting on Psycholinguistics.
+
+\bibitem[{Hare and Otto(1978)}]{hare1978development}
+\textsc{Hare, Victoria~Chou}; and \textsc{Wayne Otto}. 1978.
+\newblock Development of preferred adjective ordering in children, grades one
+  through five.
+\newblock \emph{The Journal of Educational Research} 190--193.
+
+\bibitem[{Hetzron(1978)}]{hetzron1978relative}
+\textsc{Hetzron, Robert}. 1978.
+\newblock On the relative order of adjectives.
+\newblock \emph{Language universals}, ed. by H~Seiler, 165--184. T{\"u}bingen.
+
+\bibitem[{Hill(2012)}]{hill2012beauty}
+\textsc{Hill, Felix}. 2012.
+\newblock Beauty before age?: applying subjectivity to automatic english
+  adjective ordering.
+\newblock \emph{Proceedings of the 2012 conference of the north american
+  chapter of the association for computational linguistics: Human language
+  technologies: Student research workshop}, 11--16. Association for
+  Computational Linguistics.
+
+\bibitem[{Kennedy(2013)}]{kennedy2013}
+\textsc{Kennedy, Christopher}. 2013.
+\newblock {Two Sources of Subjectivity: Qualitative Assessment and Dimensional
+  Uncertainty}.
+\newblock \emph{Inquiry} 56(2-3).258--277.
+
+\bibitem[{K{\"{o}}lbel(2004)}]{kolbel2004}
+\textsc{K{\"{o}}lbel, Max}. 2004.
+\newblock {Faultless Disagreement}.
+\newblock \emph{Proceedings of the Aristotelian Society} 104.53--73.
+
+\bibitem[{Kunert et~al.(2011)Kunert, Fern{\'a}ndez and
+  Zuidema}]{kunertetal2011}
+\textsc{Kunert, Richard}; \textsc{Raquel Fern{\'a}ndez}; and \textsc{Willem
+  Zuidema}. 2011.
+\newblock {Adaptation in child directed speech: Evidence from corpora}.
+\newblock \emph{Proc. SemDial} 112119.
+
+\bibitem[{Laenzlinger(2005)}]{laenzlinger2005}
+\textsc{Laenzlinger, Christopher}. 2005.
+\newblock French adjective ordering: perspectives on {DP}-internal movement
+  types.
+\newblock \emph{Lingua} 115.645--689.
+
+\bibitem[{MacWhinney(2000)}]{macwhinney2000childes}
+\textsc{MacWhinney, Brian}. 2000.
+\newblock \emph{{The CHILDES project: The database}}, vol.~2.
+\newblock Psychology Press.
+
+\bibitem[{Martin and Molfese(1972)}]{martin1972preferred}
+\textsc{Martin, James~E}; and \textsc{Dennis~L Molfese}. 1972.
+\newblock Preferred adjective ordering in very young children.
+\newblock \emph{Journal of Verbal Learning and Verbal Behavior} 11(3).287--292.
+
+\bibitem[{Maye et~al.(2008)Maye, Weiss and Aslin}]{mayeetal2008}
+\textsc{Maye, Jessica}; \textsc{Daniel~J Weiss}; and \textsc{Richard~N Aslin}.
+  2008.
+\newblock {Statistical phonetic learning in infants: Facilitation and feature
+  generalization}.
+\newblock \emph{Developmental science} 11(1).122--134.
+
+\bibitem[{Maye et~al.(2002)Maye, Werker and Gerken}]{mayeetal2002}
+\textsc{Maye, Jessica}; \textsc{Janet~F Werker}; and \textsc{LouAnn Gerken}.
+  2002.
+\newblock Infant sensitivity to distributional information can affect phonetic
+  discrimination.
+\newblock \emph{Cognition} 82(3).B101--B111.
+
+\bibitem[{Mintz(2006)}]{mintz2006}
+\textsc{Mintz, Toben~H}. 2006.
+\newblock {Finding the verbs: Distributional cues to categories available to
+  young learners}.
+\newblock \emph{Action meets word: How children learn verbs} 31--63.
+
+\bibitem[{Saffran et~al.(1996)Saffran, Aslin and Newport}]{saffranetal1996}
+\textsc{Saffran, Jenny~R}; \textsc{Richard~N Aslin}; and \textsc{Elissa~L
+  Newport}. 1996.
+\newblock Statistical learning by 8-month-old infants.
+\newblock \emph{Science} 1926--1928.
+
+\bibitem[{Scontras et~al.(2017)Scontras, Degen and
+  Goodman}]{scontras2017subjectivity}
+\textsc{Scontras, Gregory}; \textsc{Judith Degen}; and \textsc{Noah~D Goodman}.
+  2017.
+\newblock Subjectivity predicts adjective ordering preferences.
+\newblock \emph{Open Mind: Discoveries in Cognitive Science} 1.53--65.
+
+\bibitem[{Scott(2002)}]{scott2002}
+\textsc{Scott, Gary-John.} 2002.
+\newblock {Stacked adjectival modification and the structure of nominal
+  phrases}.
+\newblock \emph{The cartography of syntactic structures, volume 1: Functional
+  structure in the dp and ip}, ed. by G~Cinque, 91--120. Oxford: Oxford
+  University Press.
+
+\bibitem[{Smith and Yu(2008)}]{smithyu2008}
+\textsc{Smith, Linda}; and \textsc{Chen Yu}. 2008.
+\newblock Infants rapidly learn word-referent mappings via cross-situational
+  statistics.
+\newblock \emph{Cognition} 106(3).1558--1568.
+
+\bibitem[{Sproat and Shih(1991)}]{sproat1991cross}
+\textsc{Sproat, Richard}; and \textsc{Chilin Shih}. 1991.
+\newblock The cross-linguistic distribution of adjective ordering restrictions.
+\newblock \emph{Interdisciplinary approaches to language}, 565--593. Springer.
+
+\bibitem[{Xu and Tenenbaum(2007)}]{xutenenbaum2007}
+\textsc{Xu, Fei}; and \textsc{Joshua~B Tenenbaum}. 2007.
+\newblock {Word learning as Bayesian inference}.
+\newblock \emph{Psychological Review} 114(2).245.
+
+\end{thebibliography}
